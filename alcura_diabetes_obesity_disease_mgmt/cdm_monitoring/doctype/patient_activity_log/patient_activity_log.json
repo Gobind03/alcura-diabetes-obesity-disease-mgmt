@@ -12,7 +12,7 @@
   "ownership_section", "is_patient_entered", "entered_by_user"
  ],
  "fields": [
-  { "fieldname": "naming_series", "fieldtype": "Select", "hidden": 1, "label": "Naming Series", "options": "CDM-ACL-.YYYY.-.#####", "default": "CDM-ACL-.YYYY.-.#####", "no_copy": 1, "print_hide": 1, "reqd": 1 },
+  { "fieldname": "naming_series", "fieldtype": "Select", "hidden": 1, "label": "Naming Series", "options": "CDM-PAL-.YYYY.-.#####", "default": "CDM-PAL-.YYYY.-.#####", "no_copy": 1, "print_hide": 1, "reqd": 1 },
   { "fieldname": "patient_section", "fieldtype": "Section Break", "label": "Patient" },
   { "fieldname": "patient", "fieldtype": "Link", "in_list_view": 1, "in_standard_filter": 1, "label": "Patient", "options": "Patient", "reqd": 1, "search_index": 1 },
   { "fetch_from": "patient.patient_name", "fieldname": "patient_name", "fieldtype": "Data", "label": "Patient Name", "read_only": 1 },
@@ -36,7 +36,7 @@
  "modified": "2026-04-22 00:00:00.000000",
  "modified_by": "Administrator",
  "module": "CDM Monitoring",
- "name": "Activity Log",
+ "name": "Patient Activity Log",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [

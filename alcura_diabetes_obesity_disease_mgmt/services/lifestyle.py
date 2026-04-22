@@ -69,12 +69,12 @@ class LifestyleService:
 		lookback_days: int = 30,
 	) -> dict[str, Any]:
 		"""Compute activity stats over a period."""
-		if not frappe.db.exists("DocType", "Activity Log"):
+		if not frappe.db.exists("DocType", "Patient Activity Log"):
 			return {"total_logs": 0, "total_minutes": 0, "total_steps": 0}
 
 		from_date = add_days(nowdate(), -lookback_days)
 		logs = frappe.get_all(
-			"Activity Log",
+			"Patient Activity Log",
 			filters={
 				"patient": patient,
 				"logged_at": [">=", from_date],

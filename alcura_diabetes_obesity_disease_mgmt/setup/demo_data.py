@@ -36,7 +36,7 @@ def remove_demo_data():
 	doctypes = [
 		"Care Coordinator Action", "Care Gap", "Complication Screening Tracker",
 		"CDM Alert", "Medication Side Effect Log", "Medication Adherence Log",
-		"Supplement Log", "Activity Log", "Meal Log",
+		"Supplement Log", "Patient Activity Log", "Meal Log",
 		"Home Monitoring Entry", "Diet Plan",
 		"Disease Goal", "CDM Care Plan",
 		"Obesity Profile", "Diabetes Profile",

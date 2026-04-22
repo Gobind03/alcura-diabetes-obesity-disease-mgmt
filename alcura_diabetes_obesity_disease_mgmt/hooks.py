@@ -100,7 +100,7 @@ permission_query_conditions = {
 	"Care Gap": _cdm_query_conditions,
 	"Diet Plan": _cdm_query_conditions,
 	"Meal Log": _cdm_query_conditions,
-	"Activity Log": _cdm_query_conditions,
+	"Patient Activity Log": _cdm_query_conditions,
 	"Supplement Log": _cdm_query_conditions,
 	"Care Coordinator Action": _cdm_query_conditions,
 }
@@ -121,7 +121,7 @@ has_permission = {
 	"Care Gap": _cdm_has_permission,
 	"Diet Plan": _cdm_has_permission,
 	"Meal Log": _cdm_has_permission,
-	"Activity Log": _cdm_has_permission,
+	"Patient Activity Log": _cdm_has_permission,
 	"Supplement Log": _cdm_has_permission,
 	"Care Coordinator Action": _cdm_has_permission,
 }

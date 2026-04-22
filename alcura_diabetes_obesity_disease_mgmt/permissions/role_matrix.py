@@ -136,7 +136,7 @@ PERMISSION_MATRIX: dict[str, dict[str, dict[str, int]]] = {
 		CDM_DIETITIAN: {"read": 1, "write": 1, "create": 1},
 		CDM_PATIENT: {"read": 1, "create": 1},
 	},
-	"Activity Log": {
+	"Patient Activity Log": {
 		CDM_ADMIN: {"read": 1, "write": 1, "create": 1, "delete": 1, "export": 1},
 		CDM_PHYSICIAN: {"read": 1, "write": 1, "create": 1},
 		CDM_NURSE: {"read": 1, "write": 1, "create": 1},

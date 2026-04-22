@@ -1,4 +1,4 @@
-"""Activity Log controller."""
+"""Patient Activity Log controller."""
 
 from __future__ import annotations
 
@@ -6,7 +6,7 @@ import frappe
 from frappe.model.document import Document
 
 
-class ActivityLog(Document):
+class PatientActivityLog(Document):
 
 	def validate(self):
 		if self.patient and not self.patient_name:

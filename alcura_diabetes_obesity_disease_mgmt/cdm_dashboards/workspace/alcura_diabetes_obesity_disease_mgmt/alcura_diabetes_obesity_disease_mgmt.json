@@ -60,7 +60,7 @@
 			"hidden": 0, "is_query_report": 0, "label": "Meal Log", "link_to": "Meal Log", "link_type": "DocType", "onboard": 0, "type": "Link"
 		},
 		{
-			"hidden": 0, "is_query_report": 0, "label": "Activity Log", "link_to": "Activity Log", "link_type": "DocType", "onboard": 0, "type": "Link"
+			"hidden": 0, "is_query_report": 0, "label": "Patient Activity Log", "link_to": "Patient Activity Log", "link_type": "DocType", "onboard": 0, "type": "Link"
 		},
 		{
 			"hidden": 0, "is_query_report": 0, "label": "Supplement Log", "link_to": "Supplement Log", "link_type": "DocType", "onboard": 0, "type": "Link"

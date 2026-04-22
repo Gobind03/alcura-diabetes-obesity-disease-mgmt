@@ -32,7 +32,7 @@
 | Medication Adherence Log | CDM-MAL-.YYYY.-.##### | Per-dose medication adherence |
 | Medication Side Effect Log | CDM-SEL-.YYYY.-.##### | Side effect reporting |
 | Meal Log | CDM-MLL-.YYYY.-.##### | Meal adherence logging |
-| Activity Log | CDM-ACL-.YYYY.-.##### | Exercise/activity logging |
+| Patient Activity Log | CDM-PAL-.YYYY.-.##### | Exercise/activity logging |
 | Supplement Log | CDM-SPL-.YYYY.-.##### | Supplement tracking |
 
 ## CDM Protocols Module
