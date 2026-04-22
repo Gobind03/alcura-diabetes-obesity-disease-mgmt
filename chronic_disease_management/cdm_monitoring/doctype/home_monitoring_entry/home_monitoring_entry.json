@@ -1,0 +1,347 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient_section",
+  "patient",
+  "patient_name",
+  "column_break_patient",
+  "enrollment",
+  "care_plan",
+  "entry_details_section",
+  "entry_type",
+  "entry_source",
+  "column_break_entry",
+  "recorded_at",
+  "date",
+  "values_section",
+  "numeric_value",
+  "secondary_numeric_value",
+  "column_break_values",
+  "unit",
+  "severity",
+  "status_section",
+  "status",
+  "column_break_status",
+  "is_patient_entered",
+  "entered_by_user",
+  "context_section",
+  "source_encounter",
+  "related_review_sheet",
+  "column_break_context",
+  "medication_context",
+  "amended_from_entry",
+  "notes_section",
+  "notes",
+  "metadata_section",
+  "metadata_json"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-HME-.YYYY.-.#####",
+   "default": "CDM-HME-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_section",
+   "fieldtype": "Section Break",
+   "label": "Patient & Program"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_patient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Enrollment",
+   "options": "Disease Enrollment",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "care_plan",
+   "fieldtype": "Link",
+   "label": "Care Plan",
+   "options": "CDM Care Plan"
+  },
+  {
+   "fieldname": "entry_details_section",
+   "fieldtype": "Section Break",
+   "label": "Entry Details"
+  },
+  {
+   "fieldname": "entry_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Entry Type",
+   "options": "\nFasting Glucose\nPre-Meal Glucose\nPost-Meal Glucose\nBedtime Glucose\nRandom Glucose\nHypoglycemia Event\nHyperglycemia Event\nWeight\nWaist Circumference\nBlood Pressure\nActivity\nMeal Adherence",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "entry_source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Entry Source",
+   "options": "\nPatient\nClinician\nImported\nDevice",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_entry",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "recorded_at",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Recorded At",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1,
+   "search_index": 1,
+   "description": "Derived from Recorded At for reporting convenience"
+  },
+  {
+   "fieldname": "values_section",
+   "fieldtype": "Section Break",
+   "label": "Values"
+  },
+  {
+   "fieldname": "numeric_value",
+   "fieldtype": "Float",
+   "label": "Primary Value"
+  },
+  {
+   "fieldname": "secondary_numeric_value",
+   "fieldtype": "Float",
+   "label": "Secondary Value",
+   "description": "e.g. BP diastolic when primary is systolic"
+  },
+  {
+   "fieldname": "column_break_values",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Data",
+   "label": "Unit"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "label": "Severity",
+   "options": "\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Status & Ownership"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nEntered in Error\nSuperseded",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_status",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_patient_entered",
+   "fieldtype": "Check",
+   "label": "Patient Entered"
+  },
+  {
+   "fieldname": "entered_by_user",
+   "fieldtype": "Link",
+   "label": "Entered By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "context_section",
+   "fieldtype": "Section Break",
+   "label": "Context"
+  },
+  {
+   "fieldname": "source_encounter",
+   "fieldtype": "Link",
+   "label": "Source Encounter",
+   "options": "Patient Encounter"
+  },
+  {
+   "fieldname": "related_review_sheet",
+   "fieldtype": "Link",
+   "label": "Related Review Sheet",
+   "options": "Disease Review Sheet"
+  },
+  {
+   "fieldname": "column_break_context",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "medication_context",
+   "fieldtype": "Data",
+   "label": "Medication Context"
+  },
+  {
+   "fieldname": "amended_from_entry",
+   "fieldtype": "Link",
+   "label": "Supersedes Entry",
+   "options": "Home Monitoring Entry",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "metadata_section",
+   "fieldtype": "Section Break",
+   "label": "Metadata"
+  },
+  {
+   "fieldname": "metadata_json",
+   "fieldtype": "Code",
+   "label": "Metadata JSON",
+   "options": "JSON",
+   "description": "Structured extensibility for activity duration, meal scores, etc."
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Monitoring",
+ "name": "Home Monitoring Entry",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Physician",
+   "write": 1,
+   "create": 1
+  },
+  {
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Nurse",
+   "write": 1,
+   "create": 1
+  },
+  {
+   "read": 1,
+   "role": "CDM Coordinator"
+  },
+  {
+   "read": 1,
+   "role": "CDM Dietitian"
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "CDM Patient"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "recorded_at",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "green",
+   "title": "Active"
+  },
+  {
+   "color": "red",
+   "title": "Entered in Error"
+  },
+  {
+   "color": "orange",
+   "title": "Superseded"
+  }
+ ],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

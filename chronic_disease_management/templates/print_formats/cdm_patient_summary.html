@@ -1,0 +1,74 @@
+{% macro render_patient_summary(summary) %}
+<style>
+	.cdm-patient-summary { font-family: Arial, sans-serif; font-size: 11pt; }
+	.cdm-patient-summary h2 { color: #0070c0; margin-top: 16px; }
+	.cdm-patient-summary .card { border: 1px solid #ddd; border-radius: 8px; padding: 12px; margin: 8px 0; }
+	.cdm-patient-summary .goal-card { border-left: 4px solid #0070c0; }
+</style>
+
+<div class="cdm-patient-summary">
+	<h1>My Health Summary</h1>
+	<p>{{ summary.patient_name }}</p>
+	<p><small>Prepared on: {{ summary.generated_at }}</small></p>
+
+	{% if summary.program_info %}
+	<h2>My Program</h2>
+	<div class="card">
+		<p><strong>Program:</strong> {{ summary.program_info.disease_type or 'Not enrolled' }}</p>
+		{% if summary.program_info.practitioner_name %}
+		<p><strong>My Doctor:</strong> {{ summary.program_info.practitioner_name }}</p>
+		{% endif %}
+	</div>
+	{% endif %}
+
+	{% if summary.my_goals %}
+	<h2>My Goals</h2>
+	{% for g in summary.my_goals %}
+	<div class="card goal-card">
+		<p><strong>{{ g.goal_metric }}</strong> — Target: {{ g.target_value or '' }} {{ g.target_unit or '' }}</p>
+		{% if g.current_value %}<p>Current: {{ g.current_value }}</p>{% endif %}
+		{% if g.rationale %}<p><small>{{ g.rationale }}</small></p>{% endif %}
+		<p><em>Status: {{ g.status }}</em></p>
+	</div>
+	{% endfor %}
+	{% endif %}
+
+	{% if summary.my_readings %}
+	<h2>My Latest Readings</h2>
+	{% for type, reading in summary.my_readings.items() %}
+	<div class="card">
+		<p><strong>{{ type }}:</strong> {{ reading.value }} {{ reading.unit or '' }}
+		{% if reading.date %}<small>({{ reading.date }})</small>{% endif %}</p>
+	</div>
+	{% endfor %}
+	{% endif %}
+
+	{% if summary.upcoming_actions %}
+	<h2>What's Coming Up</h2>
+	{% if summary.upcoming_actions.reviews %}
+	<p><strong>Upcoming Appointments:</strong></p>
+	<ul>
+	{% for r in summary.upcoming_actions.reviews %}
+		<li>{{ r.review_type }} — {{ r.due_date }}</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if summary.upcoming_actions.screenings %}
+	<p><strong>Tests Due:</strong></p>
+	<ul>
+	{% for s in summary.upcoming_actions.screenings %}
+		<li>{{ s.screening_type }} — {{ s.due_date }}</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+	{% endif %}
+
+	{% if summary.my_team %}
+	<h2>My Care Team</h2>
+	{% if summary.my_team.managing_doctor %}
+	<p><strong>Doctor:</strong> {{ summary.my_team.managing_doctor }}</p>
+	{% endif %}
+	{% endif %}
+</div>
+{% endmacro %}

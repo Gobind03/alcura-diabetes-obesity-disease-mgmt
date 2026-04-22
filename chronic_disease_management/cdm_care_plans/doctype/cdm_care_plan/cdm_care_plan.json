@@ -1,0 +1,305 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient_information_section",
+  "enrollment",
+  "patient",
+  "patient_name",
+  "column_break_patient",
+  "disease_type",
+  "plan_details_section",
+  "status",
+  "start_date",
+  "column_break_plan",
+  "review_date",
+  "protocol_template",
+  "practitioner_section",
+  "practitioner",
+  "practitioner_name",
+  "care_team_section",
+  "care_team",
+  "goals_section",
+  "goals_html",
+  "plan_summary_section",
+  "plan_summary",
+  "notes_section",
+  "notes",
+  "connections_section",
+  "connections_html",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-CP-.YYYY.-.#####",
+   "default": "CDM-CP-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_information_section",
+   "fieldtype": "Section Break",
+   "label": "Patient Information"
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Enrollment",
+   "options": "Disease Enrollment",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "enrollment.patient",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "enrollment.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_patient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "enrollment.disease_type",
+   "fieldname": "disease_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Disease Type",
+   "options": "Diabetes\nObesity\nCombined Metabolic\nPrediabetes / Metabolic Risk",
+   "read_only": 1
+  },
+  {
+   "fieldname": "plan_details_section",
+   "fieldtype": "Section Break",
+   "label": "Plan Details"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nActive\nUnder Review\nCompleted\nCancelled",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_plan",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date"
+  },
+  {
+   "fieldname": "protocol_template",
+   "fieldtype": "Link",
+   "label": "Protocol Template",
+   "options": "Protocol Template"
+  },
+  {
+   "fieldname": "practitioner_section",
+   "fieldtype": "Section Break",
+   "label": "Primary Practitioner"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Primary Practitioner",
+   "options": "Healthcare Practitioner",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "practitioner.practitioner_name",
+   "fieldname": "practitioner_name",
+   "fieldtype": "Data",
+   "label": "Practitioner Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "care_team_section",
+   "fieldtype": "Section Break",
+   "label": "Care Team"
+  },
+  {
+   "fieldname": "care_team",
+   "fieldtype": "Table",
+   "label": "Care Team",
+   "options": "Care Team Member"
+  },
+  {
+   "fieldname": "goals_section",
+   "fieldtype": "Section Break",
+   "label": "Goals"
+  },
+  {
+   "fieldname": "goals_html",
+   "fieldtype": "HTML",
+   "label": "Goals Summary"
+  },
+  {
+   "fieldname": "plan_summary_section",
+   "fieldtype": "Section Break",
+   "label": "Plan Summary"
+  },
+  {
+   "fieldname": "plan_summary",
+   "fieldtype": "Text Editor",
+   "label": "Plan Summary"
+  },
+  {
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "connections_section",
+   "fieldtype": "Section Break",
+   "label": "Connections"
+  },
+  {
+   "fieldname": "connections_html",
+   "fieldtype": "HTML",
+   "label": "Connections"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "CDM Care Plan",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 0,
+ "links": [
+  {
+   "group": "Goals",
+   "link_doctype": "Disease Goal",
+   "link_fieldname": "care_plan"
+  },
+  {
+   "group": "Reviews",
+   "link_doctype": "Disease Review Sheet",
+   "link_fieldname": "care_plan"
+  }
+ ],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Care Plans",
+ "name": "CDM Care Plan",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Physician",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "CDM Nurse",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "CDM Coordinator",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "CDM Dietitian"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "CDM Patient"
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

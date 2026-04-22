@@ -1,0 +1,351 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient_information_section",
+  "patient",
+  "patient_name",
+  "column_break_patient",
+  "patient_age",
+  "patient_sex",
+  "program_details_section",
+  "disease_type",
+  "program_status",
+  "column_break_program",
+  "enrollment_date",
+  "practitioner_clinic_section",
+  "practitioner",
+  "practitioner_name",
+  "column_break_practitioner",
+  "primary_clinic",
+  "company",
+  "clinical_context_section",
+  "source_encounter",
+  "source_appointment",
+  "column_break_clinical",
+  "baseline_diagnosis_summary",
+  "comorbidities_summary",
+  "notes_section",
+  "notes",
+  "status_tracking_section",
+  "status_change_reason",
+  "connections_section",
+  "connections_html",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-ENR-.YYYY.-.#####",
+   "default": "CDM-ENR-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_information_section",
+   "fieldtype": "Section Break",
+   "label": "Patient Information"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_patient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "patient_age",
+   "fieldtype": "Data",
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "patient.sex",
+   "fieldname": "patient_sex",
+   "fieldtype": "Data",
+   "label": "Sex",
+   "read_only": 1
+  },
+  {
+   "fieldname": "program_details_section",
+   "fieldtype": "Section Break",
+   "label": "Program Details"
+  },
+  {
+   "fieldname": "disease_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Disease Program",
+   "options": "\nDiabetes\nObesity\nCombined Metabolic\nPrediabetes / Metabolic Risk",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "program_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nActive\nOn Hold\nCompleted\nWithdrawn",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_program",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "enrollment_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Enrollment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "practitioner_clinic_section",
+   "fieldtype": "Section Break",
+   "label": "Practitioner & Clinic"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Managing Practitioner",
+   "options": "Healthcare Practitioner",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "practitioner.practitioner_name",
+   "fieldname": "practitioner_name",
+   "fieldtype": "Data",
+   "label": "Practitioner Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_practitioner",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "primary_clinic",
+   "fieldtype": "Link",
+   "label": "Primary Clinic / Branch",
+   "options": "Healthcare Service Unit"
+  },
+  {
+   "fetch_from": "Disease Management Settings.default_company",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "clinical_context_section",
+   "fieldtype": "Section Break",
+   "label": "Clinical Context"
+  },
+  {
+   "fieldname": "source_encounter",
+   "fieldtype": "Link",
+   "label": "Source Encounter",
+   "options": "Patient Encounter",
+   "description": "Set automatically when enrollment is initiated from a Patient Encounter"
+  },
+  {
+   "fieldname": "source_appointment",
+   "fieldtype": "Link",
+   "label": "Source Appointment",
+   "options": "Patient Appointment",
+   "description": "Set automatically when enrollment is initiated from a Patient Appointment"
+  },
+  {
+   "fieldname": "column_break_clinical",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "baseline_diagnosis_summary",
+   "fieldtype": "Small Text",
+   "label": "Baseline Diagnosis Summary"
+  },
+  {
+   "fieldname": "comorbidities_summary",
+   "fieldtype": "Small Text",
+   "label": "Comorbidities Summary"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "status_tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Status Tracking"
+  },
+  {
+   "fieldname": "status_change_reason",
+   "fieldtype": "Small Text",
+   "label": "Status Change Reason",
+   "description": "Reason for the most recent status change"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "connections_section",
+   "fieldtype": "Section Break",
+   "label": "Connected Records"
+  },
+  {
+   "fieldname": "connections_html",
+   "fieldtype": "HTML",
+   "label": "Connections",
+   "options": "<div class=\"cdm-connections-placeholder text-muted small\">Care Plan, Reviews, and Baseline Assessment links will appear here.</div>"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Disease Enrollment",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [
+  {
+   "link_doctype": "Disease Baseline Assessment",
+   "link_fieldname": "enrollment"
+  }
+ ],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Enrollment",
+ "name": "Disease Enrollment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Physician",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Nurse",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Coordinator",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CDM Dietitian"
+  },
+  {
+   "read": 1,
+   "role": "CDM Patient"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "blue",
+   "title": "Draft"
+  },
+  {
+   "color": "green",
+   "title": "Active"
+  },
+  {
+   "color": "orange",
+   "title": "On Hold"
+  },
+  {
+   "color": "darkgrey",
+   "title": "Completed"
+  },
+  {
+   "color": "red",
+   "title": "Withdrawn"
+  }
+ ],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

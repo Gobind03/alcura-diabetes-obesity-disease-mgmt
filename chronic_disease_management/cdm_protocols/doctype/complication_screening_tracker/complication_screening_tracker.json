@@ -1,0 +1,212 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient_section",
+  "patient",
+  "patient_name",
+  "column_break_patient",
+  "enrollment",
+  "care_plan",
+  "screening_section",
+  "screening_type",
+  "status",
+  "column_break_screening",
+  "due_date",
+  "completed_date",
+  "source_section",
+  "source_encounter",
+  "source_lab_test",
+  "column_break_source",
+  "result_summary",
+  "deferred_section",
+  "deferred_reason",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-SCR-.YYYY.-.#####",
+   "default": "CDM-SCR-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_section",
+   "fieldtype": "Section Break",
+   "label": "Patient & Program"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_patient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Enrollment",
+   "options": "Disease Enrollment",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "care_plan",
+   "fieldtype": "Link",
+   "label": "Care Plan",
+   "options": "CDM Care Plan"
+  },
+  {
+   "fieldname": "screening_section",
+   "fieldtype": "Section Break",
+   "label": "Screening Details"
+  },
+  {
+   "fieldname": "screening_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Screening Type",
+   "options": "\nHbA1c Review\nRenal Screening\nLipid Review\nFoot Exam\nEye Review\nEye Referral\nBP Review\nMedication Reconciliation\nObesity Milestone Review\nEducation Completion",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Due",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Due\nCompleted\nOverdue\nDeferred",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_screening",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "completed_date",
+   "fieldtype": "Date",
+   "label": "Completed Date"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "source_section",
+   "fieldtype": "Section Break",
+   "label": "Source & Results"
+  },
+  {
+   "fieldname": "source_encounter",
+   "fieldtype": "Link",
+   "label": "Source Encounter",
+   "options": "Patient Encounter"
+  },
+  {
+   "fieldname": "source_lab_test",
+   "fieldtype": "Link",
+   "label": "Source Lab Test",
+   "options": "Lab Test"
+  },
+  {
+   "fieldname": "column_break_source",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "result_summary",
+   "fieldtype": "Small Text",
+   "label": "Result Summary"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "deferred_section",
+   "fieldtype": "Section Break",
+   "label": "Deferral"
+  },
+  {
+   "fieldname": "deferred_reason",
+   "fieldtype": "Small Text",
+   "label": "Deferred Reason",
+   "depends_on": "eval:doc.status === 'Deferred'"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Protocols",
+ "name": "Complication Screening Tracker",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Administrator", "share": 1, "write": 1
+  },
+  {
+   "create": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Physician", "write": 1
+  },
+  {
+   "create": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Nurse", "write": 1
+  },
+  { "read": 1, "write": 1, "role": "CDM Coordinator" },
+  { "read": 1, "role": "CDM Dietitian" },
+  { "read": 1, "role": "CDM Patient" },
+  {
+   "create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1
+  }
+ ],
+ "sort_field": "due_date",
+ "sort_order": "ASC",
+ "states": [
+  { "color": "blue", "title": "Due" },
+  { "color": "green", "title": "Completed" },
+  { "color": "red", "title": "Overdue" },
+  { "color": "orange", "title": "Deferred" }
+ ],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

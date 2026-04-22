@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "medication",
+  "side_effect",
+  "column_break_detail",
+  "severity",
+  "action_taken",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "medication",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Medication",
+   "reqd": 1
+  },
+  {
+   "fieldname": "side_effect",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Side Effect",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_detail",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Severity",
+   "options": "Mild\nModerate\nSevere",
+   "reqd": 1
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Action Taken",
+   "options": "None\nDose Adjusted\nMedication Changed\nMedication Stopped\nMonitoring"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Reviews",
+ "name": "Review Side Effect",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": [],
+ "track_changes": 0
+}

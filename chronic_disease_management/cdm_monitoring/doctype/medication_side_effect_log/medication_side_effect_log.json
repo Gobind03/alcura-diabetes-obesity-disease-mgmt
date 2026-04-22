@@ -1,0 +1,244 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient_section",
+  "patient",
+  "patient_name",
+  "column_break_patient",
+  "enrollment",
+  "care_plan",
+  "medication_section",
+  "medication_name",
+  "medication_source_doctype",
+  "column_break_med",
+  "medication_source_name",
+  "effect_section",
+  "effect_name",
+  "severity",
+  "column_break_effect",
+  "onset_date",
+  "resolved_date",
+  "status",
+  "action_section",
+  "action_taken",
+  "notes_section",
+  "notes",
+  "ownership_section",
+  "is_patient_entered",
+  "entered_by_user",
+  "related_review_sheet"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-SEL-.YYYY.-.#####",
+   "default": "CDM-SEL-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_section",
+   "fieldtype": "Section Break",
+   "label": "Patient & Program"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_patient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Enrollment",
+   "options": "Disease Enrollment",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "care_plan",
+   "fieldtype": "Link",
+   "label": "Care Plan",
+   "options": "CDM Care Plan"
+  },
+  {
+   "fieldname": "medication_section",
+   "fieldtype": "Section Break",
+   "label": "Medication"
+  },
+  {
+   "fieldname": "medication_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Medication Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "medication_source_doctype",
+   "fieldtype": "Link",
+   "label": "Source DocType",
+   "options": "DocType"
+  },
+  {
+   "fieldname": "column_break_med",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "medication_source_name",
+   "fieldtype": "Dynamic Link",
+   "label": "Source Document",
+   "options": "medication_source_doctype"
+  },
+  {
+   "fieldname": "effect_section",
+   "fieldtype": "Section Break",
+   "label": "Side Effect"
+  },
+  {
+   "fieldname": "effect_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Effect Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Severity",
+   "options": "\nMild\nModerate\nSevere",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_effect",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "onset_date",
+   "fieldtype": "Date",
+   "label": "Onset Date"
+  },
+  {
+   "fieldname": "resolved_date",
+   "fieldtype": "Date",
+   "label": "Resolved Date"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nResolved\nOngoing\nEntered in Error",
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "action_section",
+   "fieldtype": "Section Break",
+   "label": "Action Taken"
+  },
+  {
+   "fieldname": "action_taken",
+   "fieldtype": "Small Text",
+   "label": "Action Taken"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "ownership_section",
+   "fieldtype": "Section Break",
+   "label": "Entry Ownership"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_patient_entered",
+   "fieldtype": "Check",
+   "label": "Patient Entered"
+  },
+  {
+   "fieldname": "entered_by_user",
+   "fieldtype": "Link",
+   "label": "Entered By",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "related_review_sheet",
+   "fieldtype": "Link",
+   "label": "Related Review Sheet",
+   "options": "Disease Review Sheet"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Monitoring",
+ "name": "Medication Side Effect Log",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Administrator", "share": 1, "write": 1
+  },
+  {
+   "create": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Physician", "write": 1
+  },
+  {
+   "create": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Nurse", "write": 1
+  },
+  { "read": 1, "role": "CDM Coordinator" },
+  { "read": 1, "role": "CDM Dietitian" },
+  { "create": 1, "read": 1, "role": "CDM Patient" },
+  {
+   "create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  { "color": "red", "title": "Active" },
+  { "color": "green", "title": "Resolved" },
+  { "color": "orange", "title": "Ongoing" },
+  { "color": "gray", "title": "Entered in Error" }
+ ],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

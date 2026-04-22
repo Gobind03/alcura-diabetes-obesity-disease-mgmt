@@ -1,0 +1,315 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient_section",
+  "patient",
+  "patient_name",
+  "column_break_patient",
+  "enrollment",
+  "care_plan",
+  "status",
+  "diabetes_details_section",
+  "diabetes_type",
+  "diagnosis_date",
+  "column_break_diabetes",
+  "disease_duration_text",
+  "treatment_section",
+  "uses_insulin",
+  "uses_cgm",
+  "uses_smbg",
+  "column_break_treatment",
+  "hypoglycemia_awareness",
+  "history_of_severe_hypoglycemia",
+  "history_of_dka_hhs",
+  "complications_section",
+  "complication_summary",
+  "column_break_complications",
+  "renal_risk_flag",
+  "cvd_risk_flag",
+  "foot_risk_flag",
+  "retinopathy_flag",
+  "neuropathy_flag",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-DPR-.YYYY.-.#####",
+   "default": "CDM-DPR-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_section",
+   "fieldtype": "Section Break",
+   "label": "Patient & Program"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_patient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Enrollment",
+   "options": "Disease Enrollment",
+   "reqd": 1,
+   "search_index": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "care_plan",
+   "fieldtype": "Link",
+   "label": "Care Plan",
+   "options": "CDM Care Plan"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive",
+   "reqd": 1
+  },
+  {
+   "fieldname": "diabetes_details_section",
+   "fieldtype": "Section Break",
+   "label": "Diabetes Details"
+  },
+  {
+   "fieldname": "diabetes_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Diabetes Type",
+   "options": "\nType 1\nType 2\nPrediabetes\nGestational History\nOther",
+   "reqd": 1
+  },
+  {
+   "fieldname": "diagnosis_date",
+   "fieldtype": "Date",
+   "label": "Diagnosis Date"
+  },
+  {
+   "fieldname": "column_break_diabetes",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "disease_duration_text",
+   "fieldtype": "Data",
+   "label": "Disease Duration",
+   "description": "e.g. '5 years', '18 months'"
+  },
+  {
+   "fieldname": "treatment_section",
+   "fieldtype": "Section Break",
+   "label": "Treatment & Monitoring"
+  },
+  {
+   "default": "0",
+   "fieldname": "uses_insulin",
+   "fieldtype": "Check",
+   "label": "Uses Insulin"
+  },
+  {
+   "default": "0",
+   "fieldname": "uses_cgm",
+   "fieldtype": "Check",
+   "label": "Uses CGM"
+  },
+  {
+   "default": "0",
+   "fieldname": "uses_smbg",
+   "fieldtype": "Check",
+   "label": "Uses SMBG"
+  },
+  {
+   "fieldname": "column_break_treatment",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hypoglycemia_awareness",
+   "fieldtype": "Select",
+   "label": "Hypoglycemia Awareness",
+   "options": "\nNormal\nReduced\nUnknown"
+  },
+  {
+   "default": "0",
+   "fieldname": "history_of_severe_hypoglycemia",
+   "fieldtype": "Check",
+   "label": "History of Severe Hypoglycemia"
+  },
+  {
+   "default": "0",
+   "fieldname": "history_of_dka_hhs",
+   "fieldtype": "Check",
+   "label": "History of DKA/HHS"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "complications_section",
+   "fieldtype": "Section Break",
+   "label": "Complications & Risk Flags"
+  },
+  {
+   "fieldname": "complication_summary",
+   "fieldtype": "Small Text",
+   "label": "Complication Summary"
+  },
+  {
+   "fieldname": "column_break_complications",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "renal_risk_flag",
+   "fieldtype": "Check",
+   "label": "Renal Risk"
+  },
+  {
+   "default": "0",
+   "fieldname": "cvd_risk_flag",
+   "fieldtype": "Check",
+   "label": "CVD Risk"
+  },
+  {
+   "default": "0",
+   "fieldname": "foot_risk_flag",
+   "fieldtype": "Check",
+   "label": "Foot Risk"
+  },
+  {
+   "default": "0",
+   "fieldname": "retinopathy_flag",
+   "fieldtype": "Check",
+   "label": "Retinopathy"
+  },
+  {
+   "default": "0",
+   "fieldname": "neuropathy_flag",
+   "fieldtype": "Check",
+   "label": "Neuropathy"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Enrollment",
+ "name": "Diabetes Profile",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Physician",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Nurse",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CDM Coordinator"
+  },
+  {
+   "read": 1,
+   "role": "CDM Dietitian"
+  },
+  {
+   "read": 1,
+   "role": "CDM Patient"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "green",
+   "title": "Active"
+  },
+  {
+   "color": "gray",
+   "title": "Inactive"
+  }
+ ],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

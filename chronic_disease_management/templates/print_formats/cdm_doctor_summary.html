@@ -1,0 +1,102 @@
+{% macro render_doctor_summary(summary) %}
+<style>
+	.cdm-summary { font-family: Arial, sans-serif; font-size: 10pt; }
+	.cdm-summary h2 { color: #333; border-bottom: 2px solid #0070c0; padding-bottom: 4px; margin-top: 16px; }
+	.cdm-summary h3 { color: #555; margin-top: 12px; }
+	.cdm-summary table { width: 100%; border-collapse: collapse; margin: 8px 0; }
+	.cdm-summary table th, .cdm-summary table td { border: 1px solid #ddd; padding: 4px 8px; text-align: left; font-size: 9pt; }
+	.cdm-summary table th { background: #f5f5f5; }
+	.cdm-flag { display: inline-block; padding: 2px 6px; background: #ffc107; color: #333; border-radius: 3px; font-size: 8pt; margin: 2px; }
+	.cdm-alert-badge { display: inline-block; padding: 2px 6px; border-radius: 3px; font-size: 8pt; margin: 2px; }
+	.cdm-alert-critical { background: #dc3545; color: white; }
+	.cdm-alert-high { background: #fd7e14; color: white; }
+	.cdm-alert-medium { background: #ffc107; color: #333; }
+</style>
+
+<div class="cdm-summary">
+	<h1>CDM Clinical Summary</h1>
+	<p><strong>Generated:</strong> {{ summary.generated_at }}</p>
+
+	{% if summary.demographics %}
+	<h2>Patient Demographics</h2>
+	<p><strong>Name:</strong> {{ summary.demographics.patient_name or '—' }} |
+	<strong>Sex:</strong> {{ summary.demographics.sex or '—' }} |
+	<strong>DOB:</strong> {{ summary.demographics.dob or '—' }}</p>
+	{% endif %}
+
+	{% if summary.enrollment %}
+	<h2>Enrollment</h2>
+	<p><strong>Program:</strong> {{ summary.enrollment.disease_type or '—' }} |
+	<strong>Enrolled:</strong> {{ summary.enrollment.enrollment_date or '—' }} |
+	<strong>Practitioner:</strong> {{ summary.enrollment.practitioner_name or '—' }}</p>
+	{% if summary.enrollment.baseline_diagnosis_summary %}
+	<p><strong>Diagnosis:</strong> {{ summary.enrollment.baseline_diagnosis_summary }}</p>
+	{% endif %}
+	{% endif %}
+
+	{% if summary.goals %}
+	<h2>Goals</h2>
+	<table>
+		<thead><tr><th>Metric</th><th>Target</th><th>Current</th><th>Status</th></tr></thead>
+		<tbody>
+		{% for g in summary.goals %}
+		<tr>
+			<td>{{ g.goal_metric }}</td>
+			<td>{{ g.target_value or '' }} {{ g.target_unit or '' }}</td>
+			<td>{{ g.current_value or '—' }}</td>
+			<td>{{ g.status }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% endif %}
+
+	{% if summary.latest_vitals %}
+	<h2>Latest Measurements</h2>
+	<table>
+		<thead><tr><th>Type</th><th>Value</th><th>Date</th></tr></thead>
+		<tbody>
+		{% for type, reading in summary.latest_vitals.items() %}
+		<tr>
+			<td>{{ type }}</td>
+			<td>{{ reading.numeric_value }} {{ reading.unit or '' }}</td>
+			<td>{{ reading.date or '' }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% endif %}
+
+	{% if summary.medications %}
+	<h2>Active Medications</h2>
+	<table>
+		<thead><tr><th>Medication</th><th>Dose</th><th>Started</th></tr></thead>
+		<tbody>
+		{% for m in summary.medications %}
+		<tr>
+			<td>{{ m.medication_name }}</td>
+			<td>{{ m.dose_text or '—' }}</td>
+			<td>{{ m.start_date or '—' }}</td>
+		</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+	{% endif %}
+
+	{% if summary.alerts %}
+	<h2>Active Alerts</h2>
+	{% for a in summary.alerts %}
+	<span class="cdm-alert-badge cdm-alert-{{ a.severity|lower }}">{{ a.alert_type }} ({{ a.severity }})</span>
+	{% endfor %}
+	{% endif %}
+
+	{% if summary.care_gaps %}
+	<h2>Open Care Gaps</h2>
+	<ul>
+	{% for g in summary.care_gaps %}
+		<li>{{ g.title }} ({{ g.severity }})</li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+</div>
+{% endmacro %}

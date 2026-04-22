@@ -1,0 +1,21 @@
+{
+ "creation": "2026-04-22 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Report",
+ "is_standard": "Yes",
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Reports",
+ "name": "Uncontrolled Patients",
+ "owner": "Administrator",
+ "ref_doctype": "Disease Enrollment",
+ "report_name": "Uncontrolled Patients",
+ "report_type": "Script Report",
+ "roles": [
+  {"role": "CDM Administrator"},
+  {"role": "CDM Physician"},
+  {"role": "CDM Nurse"},
+  {"role": "CDM Coordinator"},
+  {"role": "System Manager"}
+ ]
+}

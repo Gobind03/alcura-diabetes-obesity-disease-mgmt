@@ -1,0 +1,20 @@
+{
+ "creation": "2026-04-22 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Page",
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Dashboards",
+ "name": "care-coordinator-queue",
+ "owner": "Administrator",
+ "page_name": "care-coordinator-queue",
+ "roles": [
+  { "role": "CDM Administrator" },
+  { "role": "CDM Coordinator" },
+  { "role": "CDM Nurse" },
+  { "role": "System Manager" }
+ ],
+ "standard": "Yes",
+ "system_page": 0,
+ "title": "Care Coordinator Queue"
+}

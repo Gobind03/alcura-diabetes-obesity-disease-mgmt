@@ -1,0 +1,15 @@
+"""Meal Log controller."""
+
+from __future__ import annotations
+
+import frappe
+from frappe.model.document import Document
+
+
+class MealLog(Document):
+
+	def validate(self):
+		if self.patient and not self.patient_name:
+			self.patient_name = frappe.db.get_value("Patient", self.patient, "patient_name")
+		if not self.entered_by_user:
+			self.entered_by_user = frappe.session.user

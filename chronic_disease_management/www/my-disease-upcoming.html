@@ -1,0 +1,58 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="cdm-portal-page container py-4">
+
+	{% if not authenticated %}
+	<div class="alert alert-warning">Please log in to view upcoming actions.</div>
+
+	{% elif not has_enrollment %}
+	<div class="text-center py-5">
+		<h4 class="text-muted">No Active Program</h4>
+		<p class="text-muted">You are not currently enrolled in a disease management program.</p>
+	</div>
+
+	{% else %}
+	<h3>Upcoming Actions</h3>
+
+	<h5 class="mt-4">Upcoming Reviews</h5>
+	{% if upcoming_reviews %}
+	<div class="list-group">
+		{% for r in upcoming_reviews %}
+		<div class="list-group-item">
+			<strong>{{ r.review_type }}</strong>
+			{% if r.due_date %}
+			<span class="float-right text-muted">Due: {{ frappe.format_date(r.due_date) }}</span>
+			{% endif %}
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+	<p class="text-muted">No upcoming reviews scheduled.</p>
+	{% endif %}
+
+	<h5 class="mt-4">Due Screenings / Tests</h5>
+	{% if due_screenings %}
+	<div class="list-group">
+		{% for s in due_screenings %}
+		<div class="list-group-item d-flex justify-content-between">
+			<span>{{ s.screening_type }}</span>
+			<span>
+				{% if s.status == 'Overdue' %}
+				<span class="badge badge-danger">Overdue</span>
+				{% else %}
+				<span class="badge badge-info">Due</span>
+				{% endif %}
+				{{ frappe.format_date(s.due_date) }}
+			</span>
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+	<p class="text-muted">No screenings or tests are currently due.</p>
+	{% endif %}
+
+	{% endif %}
+
+</div>
+{% endblock %}

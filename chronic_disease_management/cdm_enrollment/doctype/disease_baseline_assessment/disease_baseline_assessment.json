@@ -1,0 +1,541 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "links_section",
+  "enrollment",
+  "patient",
+  "patient_name",
+  "column_break_links",
+  "disease_type",
+  "source_encounter",
+  "assessment_date",
+  "diagnosis_section",
+  "diagnosis_type",
+  "diagnosis_duration_months",
+  "column_break_diagnosis",
+  "diagnosis_notes",
+  "anthropometrics_section",
+  "height_cm",
+  "weight_kg",
+  "bmi",
+  "column_break_anthropometrics",
+  "waist_circumference_cm",
+  "obesity_class",
+  "vitals_snapshot_section",
+  "bp_systolic",
+  "bp_diastolic",
+  "pulse",
+  "column_break_vitals",
+  "vitals_source",
+  "vitals_date",
+  "key_labs_section",
+  "hba1c",
+  "fasting_blood_sugar",
+  "post_prandial_bs",
+  "column_break_labs_1",
+  "total_cholesterol",
+  "ldl",
+  "hdl",
+  "triglycerides",
+  "column_break_labs_2",
+  "serum_creatinine",
+  "egfr",
+  "urine_microalbumin",
+  "labs_source_date",
+  "medications_section",
+  "current_medications",
+  "column_break_medications",
+  "medications_source_date",
+  "complications_section",
+  "complications_summary",
+  "risk_markers_section",
+  "cardiovascular_risk",
+  "renal_risk",
+  "column_break_risk",
+  "metabolic_risk_notes",
+  "lifestyle_readiness_section",
+  "lifestyle_readiness",
+  "column_break_lifestyle",
+  "lifestyle_notes",
+  "care_gaps_section",
+  "care_gaps",
+  "data_quality_section",
+  "data_completeness_pct",
+  "last_refreshed",
+  "column_break_quality",
+  "refresh_notes",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-BLA-.YYYY.-.#####",
+   "default": "CDM-BLA-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "links_section",
+   "fieldtype": "Section Break",
+   "label": "Enrollment & Patient"
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Disease Enrollment",
+   "options": "Disease Enrollment",
+   "reqd": 1,
+   "unique": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "enrollment.patient",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "enrollment.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_links",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "enrollment.disease_type",
+   "fieldname": "disease_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Disease Program",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_encounter",
+   "fieldtype": "Link",
+   "label": "Source Encounter",
+   "options": "Patient Encounter"
+  },
+  {
+   "default": "Today",
+   "fieldname": "assessment_date",
+   "fieldtype": "Date",
+   "label": "Assessment Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "diagnosis_section",
+   "fieldtype": "Section Break",
+   "label": "Diagnosis"
+  },
+  {
+   "fieldname": "diagnosis_type",
+   "fieldtype": "Select",
+   "label": "Diagnosis Type",
+   "options": "\nType 1 DM\nType 2 DM\nGestational DM\nObesity Class I\nObesity Class II\nObesity Class III\nPrediabetes\nMetabolic Syndrome\nOther"
+  },
+  {
+   "fieldname": "diagnosis_duration_months",
+   "fieldtype": "Int",
+   "label": "Duration Since Diagnosis (months)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "column_break_diagnosis",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "diagnosis_notes",
+   "fieldtype": "Small Text",
+   "label": "Diagnosis Notes"
+  },
+  {
+   "fieldname": "anthropometrics_section",
+   "fieldtype": "Section Break",
+   "label": "Anthropometrics"
+  },
+  {
+   "fieldname": "height_cm",
+   "fieldtype": "Float",
+   "label": "Height (cm)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "weight_kg",
+   "fieldtype": "Float",
+   "label": "Weight (kg)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "bmi",
+   "fieldtype": "Float",
+   "label": "BMI",
+   "precision": "1",
+   "read_only": 1,
+   "description": "Auto-calculated from height and weight"
+  },
+  {
+   "fieldname": "column_break_anthropometrics",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "waist_circumference_cm",
+   "fieldtype": "Float",
+   "label": "Waist Circumference (cm)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "obesity_class",
+   "fieldtype": "Select",
+   "label": "Obesity Classification",
+   "options": "\nNormal\nOverweight\nClass I Obesity\nClass II Obesity\nClass III Obesity",
+   "read_only": 1,
+   "description": "Auto-derived from BMI"
+  },
+  {
+   "fieldname": "vitals_snapshot_section",
+   "fieldtype": "Section Break",
+   "label": "Vitals Snapshot"
+  },
+  {
+   "fieldname": "bp_systolic",
+   "fieldtype": "Int",
+   "label": "BP Systolic (mmHg)"
+  },
+  {
+   "fieldname": "bp_diastolic",
+   "fieldtype": "Int",
+   "label": "BP Diastolic (mmHg)"
+  },
+  {
+   "fieldname": "pulse",
+   "fieldtype": "Int",
+   "label": "Pulse (bpm)"
+  },
+  {
+   "fieldname": "column_break_vitals",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vitals_source",
+   "fieldtype": "Link",
+   "label": "Vitals Source Record",
+   "options": "Vital Signs",
+   "read_only": 1,
+   "description": "Link to the Vital Signs record used for auto-fill"
+  },
+  {
+   "fieldname": "vitals_date",
+   "fieldtype": "Date",
+   "label": "Vitals Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "key_labs_section",
+   "fieldtype": "Section Break",
+   "label": "Key Lab Results Snapshot"
+  },
+  {
+   "fieldname": "hba1c",
+   "fieldtype": "Float",
+   "label": "HbA1c (%)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "fasting_blood_sugar",
+   "fieldtype": "Float",
+   "label": "Fasting Blood Sugar (mg/dL)",
+   "precision": "0"
+  },
+  {
+   "fieldname": "post_prandial_bs",
+   "fieldtype": "Float",
+   "label": "Post Prandial BS (mg/dL)",
+   "precision": "0"
+  },
+  {
+   "fieldname": "column_break_labs_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_cholesterol",
+   "fieldtype": "Float",
+   "label": "Total Cholesterol (mg/dL)",
+   "precision": "0"
+  },
+  {
+   "fieldname": "ldl",
+   "fieldtype": "Float",
+   "label": "LDL (mg/dL)",
+   "precision": "0"
+  },
+  {
+   "fieldname": "hdl",
+   "fieldtype": "Float",
+   "label": "HDL (mg/dL)",
+   "precision": "0"
+  },
+  {
+   "fieldname": "triglycerides",
+   "fieldtype": "Float",
+   "label": "Triglycerides (mg/dL)",
+   "precision": "0"
+  },
+  {
+   "fieldname": "column_break_labs_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "serum_creatinine",
+   "fieldtype": "Float",
+   "label": "Serum Creatinine (mg/dL)",
+   "precision": "2"
+  },
+  {
+   "fieldname": "egfr",
+   "fieldtype": "Float",
+   "label": "eGFR (mL/min)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "urine_microalbumin",
+   "fieldtype": "Float",
+   "label": "Urine Microalbumin (mg/L)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "labs_source_date",
+   "fieldtype": "Date",
+   "label": "Labs Source Date",
+   "read_only": 1,
+   "description": "Date of the most recent lab result used"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "medications_section",
+   "fieldtype": "Section Break",
+   "label": "Medications Snapshot"
+  },
+  {
+   "fieldname": "current_medications",
+   "fieldtype": "Text",
+   "label": "Current Medications",
+   "description": "Snapshot of active medications at baseline"
+  },
+  {
+   "fieldname": "column_break_medications",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "medications_source_date",
+   "fieldtype": "Date",
+   "label": "Medications Source Date",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "complications_section",
+   "fieldtype": "Section Break",
+   "label": "Complications"
+  },
+  {
+   "fieldname": "complications_summary",
+   "fieldtype": "Small Text",
+   "label": "Complications Summary",
+   "description": "Known complications: retinopathy, nephropathy, neuropathy, etc."
+  },
+  {
+   "fieldname": "risk_markers_section",
+   "fieldtype": "Section Break",
+   "label": "Risk Markers"
+  },
+  {
+   "fieldname": "cardiovascular_risk",
+   "fieldtype": "Select",
+   "label": "Cardiovascular Risk",
+   "options": "\nLow\nModerate\nHigh\nVery High"
+  },
+  {
+   "fieldname": "renal_risk",
+   "fieldtype": "Select",
+   "label": "Renal Risk",
+   "options": "\nNormal\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "column_break_risk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "metabolic_risk_notes",
+   "fieldtype": "Small Text",
+   "label": "Metabolic Risk Notes"
+  },
+  {
+   "fieldname": "lifestyle_readiness_section",
+   "fieldtype": "Section Break",
+   "label": "Lifestyle Readiness"
+  },
+  {
+   "fieldname": "lifestyle_readiness",
+   "fieldtype": "Select",
+   "label": "Readiness Stage",
+   "options": "\nPre-contemplation\nContemplation\nPreparation\nAction\nMaintenance"
+  },
+  {
+   "fieldname": "column_break_lifestyle",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "lifestyle_notes",
+   "fieldtype": "Small Text",
+   "label": "Lifestyle Notes"
+  },
+  {
+   "fieldname": "care_gaps_section",
+   "fieldtype": "Section Break",
+   "label": "Baseline Care Gaps"
+  },
+  {
+   "fieldname": "care_gaps",
+   "fieldtype": "Table",
+   "label": "Care Gaps",
+   "options": "Baseline Care Gap",
+   "description": "Missing baseline items identified during assessment"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "data_quality_section",
+   "fieldtype": "Section Break",
+   "label": "Data Quality"
+  },
+  {
+   "fieldname": "data_completeness_pct",
+   "fieldtype": "Percent",
+   "label": "Data Completeness",
+   "read_only": 1,
+   "description": "Percentage of baseline fields that have data"
+  },
+  {
+   "fieldname": "last_refreshed",
+   "fieldtype": "Datetime",
+   "label": "Last Refreshed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_quality",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "refresh_notes",
+   "fieldtype": "Small Text",
+   "label": "Refresh Notes",
+   "read_only": 1,
+   "description": "Summary of what was auto-fetched vs manually entered"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Disease Baseline Assessment",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [
+  {
+   "link_doctype": "Disease Enrollment",
+   "link_fieldname": "enrollment"
+  }
+ ],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Enrollment",
+ "name": "Disease Baseline Assessment",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Physician",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Nurse",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CDM Coordinator"
+  },
+  {
+   "read": 1,
+   "role": "CDM Dietitian"
+  },
+  {
+   "read": 1,
+   "role": "CDM Patient"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

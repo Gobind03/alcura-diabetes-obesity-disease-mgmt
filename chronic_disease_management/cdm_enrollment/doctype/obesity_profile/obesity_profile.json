@@ -1,0 +1,283 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient_section",
+  "patient",
+  "patient_name",
+  "column_break_patient",
+  "enrollment",
+  "care_plan",
+  "status",
+  "obesity_details_section",
+  "obesity_class",
+  "column_break_obesity",
+  "baseline_weight",
+  "baseline_bmi",
+  "baseline_waist_circumference",
+  "history_section",
+  "prior_weight_loss_attempts",
+  "anti_obesity_medication_history",
+  "column_break_history",
+  "appetite_satiety_notes",
+  "activity_baseline_notes",
+  "readiness_section",
+  "readiness_to_change",
+  "column_break_readiness",
+  "comorbidity_summary",
+  "notes_section",
+  "pathway_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-OPR-.YYYY.-.#####",
+   "default": "CDM-OPR-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_section",
+   "fieldtype": "Section Break",
+   "label": "Patient & Program"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_patient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Enrollment",
+   "options": "Disease Enrollment",
+   "reqd": 1,
+   "search_index": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "care_plan",
+   "fieldtype": "Link",
+   "label": "Care Plan",
+   "options": "CDM Care Plan"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Active\nInactive",
+   "reqd": 1
+  },
+  {
+   "fieldname": "obesity_details_section",
+   "fieldtype": "Section Break",
+   "label": "Obesity Classification"
+  },
+  {
+   "fieldname": "obesity_class",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Obesity Class",
+   "options": "\nOverweight\nClass I\nClass II\nClass III\nMetabolic Risk without Obesity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_obesity",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "baseline_weight",
+   "fieldtype": "Float",
+   "label": "Baseline Weight (kg)",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "baseline_bmi",
+   "fieldtype": "Float",
+   "label": "Baseline BMI",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "baseline_waist_circumference",
+   "fieldtype": "Float",
+   "label": "Baseline Waist Circumference (cm)",
+   "non_negative": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "history_section",
+   "fieldtype": "Section Break",
+   "label": "History"
+  },
+  {
+   "fieldname": "prior_weight_loss_attempts",
+   "fieldtype": "Small Text",
+   "label": "Prior Weight Loss Attempts"
+  },
+  {
+   "fieldname": "anti_obesity_medication_history",
+   "fieldtype": "Small Text",
+   "label": "Anti-Obesity Medication History"
+  },
+  {
+   "fieldname": "column_break_history",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "appetite_satiety_notes",
+   "fieldtype": "Small Text",
+   "label": "Appetite / Satiety Notes"
+  },
+  {
+   "fieldname": "activity_baseline_notes",
+   "fieldtype": "Small Text",
+   "label": "Activity Baseline Notes"
+  },
+  {
+   "fieldname": "readiness_section",
+   "fieldtype": "Section Break",
+   "label": "Readiness & Comorbidities"
+  },
+  {
+   "fieldname": "readiness_to_change",
+   "fieldtype": "Select",
+   "label": "Readiness to Change",
+   "options": "\nLow\nModerate\nHigh"
+  },
+  {
+   "fieldname": "column_break_readiness",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comorbidity_summary",
+   "fieldtype": "Small Text",
+   "label": "Comorbidity Summary"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "pathway_notes",
+   "fieldtype": "Text",
+   "label": "Pathway Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Enrollment",
+ "name": "Obesity Profile",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Physician",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Nurse",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CDM Coordinator"
+  },
+  {
+   "read": 1,
+   "role": "CDM Dietitian"
+  },
+  {
+   "read": 1,
+   "role": "CDM Patient"
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "green",
+   "title": "Active"
+  },
+  {
+   "color": "gray",
+   "title": "Inactive"
+  }
+ ],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

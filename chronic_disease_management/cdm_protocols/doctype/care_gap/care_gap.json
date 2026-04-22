@@ -1,0 +1,222 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "patient_section",
+  "patient",
+  "patient_name",
+  "column_break_patient",
+  "enrollment",
+  "care_plan",
+  "gap_section",
+  "gap_type",
+  "title",
+  "column_break_gap",
+  "status",
+  "severity",
+  "dates_section",
+  "identified_on",
+  "due_date",
+  "column_break_dates",
+  "closed_on",
+  "linked_screening_tracker",
+  "evidence_section",
+  "evidence_summary",
+  "resolution_notes",
+  "notes_section",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-GAP-.YYYY.-.#####",
+   "default": "CDM-GAP-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "patient_section",
+   "fieldtype": "Section Break",
+   "label": "Patient & Program"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_patient",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Enrollment",
+   "options": "Disease Enrollment",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "care_plan",
+   "fieldtype": "Link",
+   "label": "Care Plan",
+   "options": "CDM Care Plan"
+  },
+  {
+   "fieldname": "gap_section",
+   "fieldtype": "Section Break",
+   "label": "Gap Details"
+  },
+  {
+   "fieldname": "gap_type",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Gap Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_gap",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Open\nClosed\nDeferred",
+   "reqd": 1
+  },
+  {
+   "fieldname": "severity",
+   "fieldtype": "Select",
+   "in_standard_filter": 1,
+   "label": "Severity",
+   "options": "\nLow\nMedium\nHigh",
+   "reqd": 1
+  },
+  {
+   "fieldname": "dates_section",
+   "fieldtype": "Section Break",
+   "label": "Dates"
+  },
+  {
+   "default": "Today",
+   "fieldname": "identified_on",
+   "fieldtype": "Date",
+   "label": "Identified On",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "column_break_dates",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "closed_on",
+   "fieldtype": "Date",
+   "label": "Closed On"
+  },
+  {
+   "fieldname": "linked_screening_tracker",
+   "fieldtype": "Link",
+   "label": "Linked Screening",
+   "options": "Complication Screening Tracker"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "evidence_section",
+   "fieldtype": "Section Break",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "evidence_summary",
+   "fieldtype": "Small Text",
+   "label": "Evidence Summary"
+  },
+  {
+   "fieldname": "resolution_notes",
+   "fieldtype": "Small Text",
+   "label": "Resolution Notes"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "notes_section",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Protocols",
+ "name": "Care Gap",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Administrator", "share": 1, "write": 1
+  },
+  {
+   "create": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Physician", "write": 1
+  },
+  {
+   "create": 1, "email": 1, "print": 1, "read": 1, "report": 1, "role": "CDM Nurse", "write": 1
+  },
+  { "read": 1, "write": 1, "role": "CDM Coordinator" },
+  { "read": 1, "role": "CDM Dietitian" },
+  { "read": 1, "role": "CDM Patient" },
+  {
+   "create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "System Manager", "share": 1, "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  { "color": "red", "title": "Open" },
+  { "color": "green", "title": "Closed" },
+  { "color": "orange", "title": "Deferred" }
+ ],
+ "title_field": "title",
+ "track_changes": 1
+}

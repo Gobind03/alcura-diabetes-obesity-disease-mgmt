@@ -1,0 +1,279 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "care_plan_section",
+  "care_plan",
+  "patient",
+  "column_break_care_plan",
+  "status",
+  "version",
+  "supersedes",
+  "goal_definition_section",
+  "goal_type",
+  "goal_metric",
+  "column_break_goal",
+  "target_value",
+  "target_range_low",
+  "target_range_high",
+  "target_unit",
+  "measurement_section",
+  "baseline_value",
+  "column_break_measurement",
+  "current_value",
+  "rationale_section",
+  "rationale",
+  "dates_section",
+  "effective_date",
+  "column_break_dates",
+  "review_date"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-GL-.YYYY.-.#####",
+   "default": "CDM-GL-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "care_plan_section",
+   "fieldtype": "Section Break",
+   "label": "Care Plan"
+  },
+  {
+   "fieldname": "care_plan",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Care Plan",
+   "options": "CDM Care Plan",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "care_plan.patient",
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_care_plan",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Not Started",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Not Started\nIn Progress\nAchieved\nPartially Met\nNot Met\nRevised",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "default": "1",
+   "fieldname": "version",
+   "fieldtype": "Int",
+   "label": "Version",
+   "read_only": 1
+  },
+  {
+   "fieldname": "supersedes",
+   "fieldtype": "Link",
+   "label": "Supersedes",
+   "options": "Disease Goal",
+   "read_only": 1
+  },
+  {
+   "fieldname": "goal_definition_section",
+   "fieldtype": "Section Break",
+   "label": "Goal Definition"
+  },
+  {
+   "fieldname": "goal_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Goal Type",
+   "options": "Glycemic Control\nWeight Management\nBlood Pressure\nLipid Management\nRenal Function\nLifestyle Modification\nMedication Adherence\nDietary\nExercise\nCustom",
+   "reqd": 1
+  },
+  {
+   "fieldname": "goal_metric",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Goal Metric",
+   "options": "HbA1c\nFasting Glucose\nPost-Prandial Glucose\nTIR\nWeight\nBMI\nWaist Circumference\nBP Systolic\nBP Diastolic\nActivity Minutes/Week\nDiet Adherence Score\nCustom",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_goal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "target_value",
+   "fieldtype": "Data",
+   "label": "Target Value",
+   "description": "Single target like '< 7%' or '70 kg'"
+  },
+  {
+   "fieldname": "target_range_low",
+   "fieldtype": "Float",
+   "label": "Target Range Low",
+   "description": "Lower bound for range targets"
+  },
+  {
+   "fieldname": "target_range_high",
+   "fieldtype": "Float",
+   "label": "Target Range High",
+   "description": "Upper bound for range targets"
+  },
+  {
+   "fieldname": "target_unit",
+   "fieldtype": "Data",
+   "label": "Unit",
+   "description": "e.g. %, mg/dL, kg, cm, mmHg, min/week"
+  },
+  {
+   "fieldname": "measurement_section",
+   "fieldtype": "Section Break",
+   "label": "Measurement"
+  },
+  {
+   "fieldname": "baseline_value",
+   "fieldtype": "Data",
+   "label": "Baseline Value"
+  },
+  {
+   "fieldname": "column_break_measurement",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "current_value",
+   "fieldtype": "Data",
+   "label": "Current Value"
+  },
+  {
+   "fieldname": "rationale_section",
+   "fieldtype": "Section Break",
+   "label": "Rationale"
+  },
+  {
+   "fieldname": "rationale",
+   "fieldtype": "Small Text",
+   "label": "Rationale"
+  },
+  {
+   "fieldname": "dates_section",
+   "fieldtype": "Section Break",
+   "label": "Dates"
+  },
+  {
+   "default": "Today",
+   "fieldname": "effective_date",
+   "fieldtype": "Date",
+   "label": "Effective Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_dates",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 0,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Care Plans",
+ "name": "Disease Goal",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Physician",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "CDM Nurse",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "CDM Coordinator",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "CDM Dietitian"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "CDM Patient"
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "goal_metric",
+ "track_changes": 1
+}

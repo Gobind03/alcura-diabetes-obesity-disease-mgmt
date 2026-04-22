@@ -1,0 +1,522 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "header_section",
+  "patient",
+  "patient_name",
+  "enrollment",
+  "column_break_header",
+  "care_plan",
+  "encounter",
+  "disease_type",
+  "review_details_section",
+  "review_type",
+  "status",
+  "column_break_review_details",
+  "review_date",
+  "due_date",
+  "practitioner_section",
+  "practitioner",
+  "practitioner_name",
+  "symptom_review_section",
+  "symptom_summary",
+  "column_break_symptoms",
+  "new_symptoms",
+  "resolved_symptoms",
+  "medication_glycemic_section",
+  "medication_adherence",
+  "medication_adherence_notes",
+  "column_break_medication",
+  "side_effects_reported",
+  "side_effects",
+  "glycemic_events_section",
+  "hypoglycemia_events",
+  "hypoglycemia_severity",
+  "column_break_glycemic",
+  "hyperglycemia_events",
+  "nutrition_lifestyle_section",
+  "appetite_response",
+  "satiety_response",
+  "column_break_nutrition",
+  "diet_adherence",
+  "diet_adherence_notes",
+  "activity_section",
+  "activity_adherence",
+  "activity_adherence_notes",
+  "anthropometric_section",
+  "weight_response",
+  "current_weight",
+  "column_break_anthropometric",
+  "weight_change_kg",
+  "current_bmi",
+  "interim_events_section",
+  "interim_events",
+  "column_break_interim",
+  "hospitalization_since_last_review",
+  "hospitalization_details",
+  "clinical_assessment_section",
+  "clinical_impression",
+  "plan_changes",
+  "follow_up_section",
+  "next_review_date",
+  "column_break_follow_up",
+  "follow_up_actions"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": "CDM-RVW-.YYYY.-.#####",
+   "default": "CDM-RVW-.YYYY.-.#####",
+   "no_copy": 1,
+   "print_hide": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "header_section",
+   "fieldtype": "Section Break",
+   "label": "Review Information"
+  },
+  {
+   "fieldname": "patient",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Patient",
+   "options": "Patient",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "patient.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "enrollment",
+   "fieldtype": "Link",
+   "in_standard_filter": 1,
+   "label": "Enrollment",
+   "options": "Disease Enrollment",
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_header",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "care_plan",
+   "fieldtype": "Link",
+   "label": "Care Plan",
+   "options": "CDM Care Plan"
+  },
+  {
+   "fieldname": "encounter",
+   "fieldtype": "Link",
+   "label": "Patient Encounter",
+   "options": "Patient Encounter",
+   "search_index": 1
+  },
+  {
+   "fetch_from": "enrollment.disease_type",
+   "fieldname": "disease_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Disease Type",
+   "options": "Diabetes\nObesity\nCombined Metabolic\nPrediabetes / Metabolic Risk",
+   "read_only": 1
+  },
+  {
+   "fieldname": "review_details_section",
+   "fieldtype": "Section Break",
+   "label": "Review Details"
+  },
+  {
+   "fieldname": "review_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Review Type",
+   "options": "New Evaluation\nDiabetes Follow-up\nObesity Follow-up\nCombined Metabolic Follow-up\nMedication Titration Review\nLab Review\nNutrition Review",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Draft\nScheduled\nIn Progress\nCompleted\nMissed\nRescheduled\nCancelled",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_review_details",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "review_date",
+   "fieldtype": "Date",
+   "label": "Review Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "label": "Due Date"
+  },
+  {
+   "fieldname": "practitioner_section",
+   "fieldtype": "Section Break",
+   "label": "Practitioner"
+  },
+  {
+   "fieldname": "practitioner",
+   "fieldtype": "Link",
+   "label": "Practitioner",
+   "options": "Healthcare Practitioner"
+  },
+  {
+   "fetch_from": "practitioner.practitioner_name",
+   "fieldname": "practitioner_name",
+   "fieldtype": "Data",
+   "label": "Practitioner Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "symptom_review_section",
+   "fieldtype": "Section Break",
+   "label": "Symptom Review",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "symptom_summary",
+   "fieldtype": "Small Text",
+   "label": "Symptom Summary"
+  },
+  {
+   "fieldname": "column_break_symptoms",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "new_symptoms",
+   "fieldtype": "Small Text",
+   "label": "New Symptoms"
+  },
+  {
+   "fieldname": "resolved_symptoms",
+   "fieldtype": "Small Text",
+   "label": "Resolved Symptoms"
+  },
+  {
+   "fieldname": "medication_glycemic_section",
+   "fieldtype": "Section Break",
+   "label": "Medication & Adherence",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "medication_adherence",
+   "fieldtype": "Select",
+   "label": "Medication Adherence",
+   "options": "\nFully Adherent\nPartially Adherent\nNon-Adherent\nNot Assessed"
+  },
+  {
+   "fieldname": "medication_adherence_notes",
+   "fieldtype": "Small Text",
+   "label": "Medication Adherence Notes"
+  },
+  {
+   "fieldname": "column_break_medication",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "side_effects_reported",
+   "fieldtype": "Check",
+   "label": "Side Effects Reported"
+  },
+  {
+   "depends_on": "eval:doc.side_effects_reported",
+   "fieldname": "side_effects",
+   "fieldtype": "Table",
+   "label": "Side Effects",
+   "options": "Review Side Effect"
+  },
+  {
+   "fieldname": "glycemic_events_section",
+   "fieldtype": "Section Break",
+   "label": "Glycemic Events",
+   "collapsible": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "hypoglycemia_events",
+   "fieldtype": "Int",
+   "label": "Hypoglycemia Episodes",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "hypoglycemia_severity",
+   "fieldtype": "Select",
+   "label": "Worst Hypoglycemia Severity",
+   "options": "\nNone\nMild\nModerate\nSevere"
+  },
+  {
+   "fieldname": "column_break_glycemic",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "hyperglycemia_events",
+   "fieldtype": "Int",
+   "label": "Hyperglycemia Episodes",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "nutrition_lifestyle_section",
+   "fieldtype": "Section Break",
+   "label": "Nutrition & Lifestyle",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "appetite_response",
+   "fieldtype": "Select",
+   "label": "Appetite Response",
+   "options": "\nNormal\nIncreased\nDecreased\nNo Change"
+  },
+  {
+   "fieldname": "satiety_response",
+   "fieldtype": "Select",
+   "label": "Satiety Response",
+   "options": "\nImproved\nWorsened\nNo Change\nNot Assessed"
+  },
+  {
+   "fieldname": "column_break_nutrition",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "diet_adherence",
+   "fieldtype": "Select",
+   "label": "Diet Adherence",
+   "options": "\nFully Adherent\nPartially Adherent\nNon-Adherent\nNot Assessed"
+  },
+  {
+   "fieldname": "diet_adherence_notes",
+   "fieldtype": "Small Text",
+   "label": "Diet Adherence Notes"
+  },
+  {
+   "fieldname": "activity_section",
+   "fieldtype": "Section Break",
+   "label": "Physical Activity",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "activity_adherence",
+   "fieldtype": "Select",
+   "label": "Activity Adherence",
+   "options": "\nFully Adherent\nPartially Adherent\nNon-Adherent\nNot Assessed"
+  },
+  {
+   "fieldname": "activity_adherence_notes",
+   "fieldtype": "Small Text",
+   "label": "Activity Adherence Notes"
+  },
+  {
+   "fieldname": "anthropometric_section",
+   "fieldtype": "Section Break",
+   "label": "Anthropometric Response",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "weight_response",
+   "fieldtype": "Select",
+   "label": "Weight Response",
+   "options": "\nDecreased\nStable\nIncreased\nNot Measured"
+  },
+  {
+   "fieldname": "current_weight",
+   "fieldtype": "Float",
+   "label": "Current Weight (kg)",
+   "precision": "1"
+  },
+  {
+   "fieldname": "column_break_anthropometric",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weight_change_kg",
+   "fieldtype": "Float",
+   "label": "Weight Change (kg)",
+   "precision": "1",
+   "read_only": 1,
+   "description": "Auto-calculated from previous review"
+  },
+  {
+   "fieldname": "current_bmi",
+   "fieldtype": "Float",
+   "label": "Current BMI",
+   "precision": "1"
+  },
+  {
+   "fieldname": "interim_events_section",
+   "fieldtype": "Section Break",
+   "label": "Interim Events",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "interim_events",
+   "fieldtype": "Small Text",
+   "label": "Interim Events"
+  },
+  {
+   "fieldname": "column_break_interim",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "hospitalization_since_last_review",
+   "fieldtype": "Check",
+   "label": "Hospitalization Since Last Review"
+  },
+  {
+   "depends_on": "eval:doc.hospitalization_since_last_review",
+   "fieldname": "hospitalization_details",
+   "fieldtype": "Small Text",
+   "label": "Hospitalization Details"
+  },
+  {
+   "fieldname": "clinical_assessment_section",
+   "fieldtype": "Section Break",
+   "label": "Clinical Assessment"
+  },
+  {
+   "fieldname": "clinical_impression",
+   "fieldtype": "Text Editor",
+   "label": "Clinical Impression"
+  },
+  {
+   "fieldname": "plan_changes",
+   "fieldtype": "Text Editor",
+   "label": "Plan Changes"
+  },
+  {
+   "fieldname": "follow_up_section",
+   "fieldtype": "Section Break",
+   "label": "Follow-up"
+  },
+  {
+   "fieldname": "next_review_date",
+   "fieldtype": "Date",
+   "label": "Next Review Date"
+  },
+  {
+   "fieldname": "column_break_follow_up",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "follow_up_actions",
+   "fieldtype": "Small Text",
+   "label": "Follow-up Actions"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "is_submittable": 0,
+ "links": [
+  {
+   "group": "Enrollment",
+   "link_doctype": "Disease Enrollment",
+   "link_fieldname": "name",
+   "parent_doctype": "Disease Review Sheet",
+   "table_fieldname": "enrollment"
+  }
+ ],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Reviews",
+ "name": "Disease Review Sheet",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Administrator",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "CDM Physician",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "CDM Nurse",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "CDM Coordinator",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "CDM Dietitian"
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "CDM Patient"
+  }
+ ],
+ "show_title_field_in_link": 1,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "patient_name",
+ "track_changes": 1
+}

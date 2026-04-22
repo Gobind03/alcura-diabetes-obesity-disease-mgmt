@@ -1,0 +1,63 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="cdm-portal-page container py-4">
+
+	{% if not authenticated %}
+	<div class="alert alert-warning">Please log in to view your goals.</div>
+
+	{% elif not has_enrollment %}
+	<div class="text-center py-5">
+		<h4 class="text-muted">No Active Program</h4>
+		<p class="text-muted">You are not currently enrolled in a disease management program.</p>
+	</div>
+
+	{% else %}
+	<h3>My Health Goals</h3>
+
+	{% if goals %}
+	<div class="mt-3">
+		{% for g in goals %}
+		<div class="card mb-3">
+			<div class="card-body">
+				<div class="d-flex justify-content-between">
+					<h5 class="card-title">{{ g.goal_metric }}</h5>
+					<span class="badge badge-{% if g.status == 'Achieved' %}success{% elif g.status == 'In Progress' %}primary{% elif g.status == 'Not Met' %}danger{% else %}secondary{% endif %}">
+						{{ g.status }}
+					</span>
+				</div>
+
+				<p>
+					<strong>Target:</strong>
+					{% if g.target_value %}
+						{{ g.target_value }} {{ g.target_unit or '' }}
+					{% elif g.target_range_low is not none %}
+						{{ g.target_range_low }} – {{ g.target_range_high }} {{ g.target_unit or '' }}
+					{% endif %}
+				</p>
+
+				{% if g.current_value %}
+				<p><strong>Current:</strong> {{ g.current_value }}</p>
+				{% endif %}
+
+				{% if g.rationale %}
+				<p class="text-muted small">{{ g.rationale }}</p>
+				{% endif %}
+
+				{% if g.review_date %}
+				<p class="text-muted small">Next review: {{ frappe.format_date(g.review_date) }}</p>
+				{% endif %}
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	{% else %}
+	<div class="text-center py-5">
+		<p class="text-muted">No goals have been set yet. Your care team will set goals as part of your care plan.</p>
+	</div>
+	{% endif %}
+
+	{% endif %}
+
+</div>
+{% endblock %}

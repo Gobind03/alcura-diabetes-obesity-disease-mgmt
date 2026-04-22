@@ -1,0 +1,79 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<div class="cdm-portal-page container py-4">
+
+	{% if not authenticated %}
+	<div class="alert alert-warning">Please log in to view your disease management program.</div>
+
+	{% elif not has_enrollment %}
+	<div class="text-center py-5">
+		<h4 class="text-muted">No Active Program</h4>
+		<p class="text-muted">You are not currently enrolled in a disease management program. Please contact your care team for more information.</p>
+	</div>
+
+	{% else %}
+	<h3>{{ program_name }} Program</h3>
+
+	<div class="row mt-4">
+		<div class="col-md-6">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title">Program Details</h5>
+					<p><strong>Program:</strong> {{ program_name }}</p>
+					{% if enrollment.enrollment_date %}
+					<p><strong>Enrolled:</strong> {{ frappe.format_date(enrollment.enrollment_date) }}</p>
+					{% endif %}
+					{% if enrollment.practitioner_name %}
+					<p><strong>Managing Doctor:</strong> {{ enrollment.practitioner_name }}</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+
+		{% if care_plan %}
+		<div class="col-md-6">
+			<div class="card mb-3">
+				<div class="card-body">
+					<h5 class="card-title">Current Care Plan</h5>
+					{% if care_plan.plan_summary %}
+					<p>{{ care_plan.plan_summary | truncate(200) }}</p>
+					{% else %}
+					<p class="text-muted">Your care team is managing your care plan.</p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		{% endif %}
+	</div>
+
+	{% if recent_readings %}
+	<h5 class="mt-4">Recent Readings</h5>
+	<div class="table-responsive">
+		<table class="table table-sm">
+			<thead>
+				<tr><th>Type</th><th>Value</th><th>Date</th></tr>
+			</thead>
+			<tbody>
+			{% for r in recent_readings %}
+				<tr>
+					<td>{{ r.entry_type }}</td>
+					<td>{{ r.numeric_value }} {{ r.unit or '' }}</td>
+					<td>{{ frappe.format_datetime(r.recorded_at) }}</td>
+				</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	{% endif %}
+
+	<div class="mt-4">
+		<a href="/my-disease-log-reading" class="btn btn-primary btn-sm">Log a Reading</a>
+		<a href="/my-disease-trends" class="btn btn-secondary btn-sm ml-2">View Trends</a>
+		<a href="/my-disease-goals" class="btn btn-secondary btn-sm ml-2">My Goals</a>
+	</div>
+
+	{% endif %}
+
+</div>
+{% endblock %}

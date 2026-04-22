@@ -1,0 +1,296 @@
+{
+ "actions": [],
+ "creation": "2026-04-22 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "general_section",
+  "enabled_programs",
+  "column_break_general",
+  "default_company",
+  "review_configuration_section",
+  "diabetes_review_interval_days",
+  "obesity_review_interval_days",
+  "column_break_review",
+  "metabolic_review_interval_days",
+  "missed_review_grace_days",
+  "alert_thresholds_section",
+  "hba1c_critical_threshold",
+  "hba1c_warning_threshold",
+  "bmi_critical_threshold",
+  "bmi_warning_threshold",
+  "column_break_alert",
+  "bp_systolic_critical",
+  "bp_systolic_warning",
+  "fbs_critical_high",
+  "fbs_warning_high",
+  "protocol_engine_section",
+  "enable_protocol_engine",
+  "auto_create_care_plan_on_enrollment",
+  "allow_multiple_active_care_plans",
+  "column_break_protocol",
+  "auto_schedule_reviews",
+  "patient_portal_section",
+  "enable_patient_portal",
+  "allow_self_monitoring_entry",
+  "allowed_self_entry_types",
+  "column_break_portal",
+  "show_care_plan_to_patient",
+  "show_lab_results_to_patient"
+ ],
+ "fields": [
+  {
+   "fieldname": "general_section",
+   "fieldtype": "Section Break",
+   "label": "General"
+  },
+  {
+   "fieldname": "enabled_programs",
+   "fieldtype": "Table",
+   "label": "Enabled Disease Programs",
+   "options": "CDM Enabled Program",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_general",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "default_company",
+   "fieldtype": "Link",
+   "label": "Default Company",
+   "options": "Company"
+  },
+  {
+   "fieldname": "review_configuration_section",
+   "fieldtype": "Section Break",
+   "label": "Review Configuration"
+  },
+  {
+   "default": "90",
+   "fieldname": "diabetes_review_interval_days",
+   "fieldtype": "Int",
+   "label": "Diabetes Review Interval (Days)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "60",
+   "fieldname": "obesity_review_interval_days",
+   "fieldtype": "Int",
+   "label": "Obesity Review Interval (Days)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_review",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "90",
+   "fieldname": "metabolic_review_interval_days",
+   "fieldtype": "Int",
+   "label": "Metabolic Review Interval (Days)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "default": "7",
+   "fieldname": "missed_review_grace_days",
+   "fieldtype": "Int",
+   "label": "Missed Review Grace Period (Days)",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "alert_thresholds_section",
+   "fieldtype": "Section Break",
+   "label": "Alert Thresholds"
+  },
+  {
+   "default": "9.0",
+   "description": "HbA1c % above which a critical alert is raised",
+   "fieldname": "hba1c_critical_threshold",
+   "fieldtype": "Float",
+   "label": "HbA1c Critical Threshold (%)",
+   "precision": "1",
+   "reqd": 1
+  },
+  {
+   "default": "7.5",
+   "description": "HbA1c % above which a warning alert is raised",
+   "fieldname": "hba1c_warning_threshold",
+   "fieldtype": "Float",
+   "label": "HbA1c Warning Threshold (%)",
+   "precision": "1",
+   "reqd": 1
+  },
+  {
+   "default": "40.0",
+   "description": "BMI above which a critical alert is raised",
+   "fieldname": "bmi_critical_threshold",
+   "fieldtype": "Float",
+   "label": "BMI Critical Threshold",
+   "precision": "1",
+   "reqd": 1
+  },
+  {
+   "default": "35.0",
+   "description": "BMI above which a warning alert is raised",
+   "fieldname": "bmi_warning_threshold",
+   "fieldtype": "Float",
+   "label": "BMI Warning Threshold",
+   "precision": "1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_alert",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "180",
+   "description": "Systolic BP (mmHg) above which a critical alert is raised",
+   "fieldname": "bp_systolic_critical",
+   "fieldtype": "Int",
+   "label": "BP Systolic Critical (mmHg)",
+   "reqd": 1
+  },
+  {
+   "default": "140",
+   "description": "Systolic BP (mmHg) above which a warning alert is raised",
+   "fieldname": "bp_systolic_warning",
+   "fieldtype": "Int",
+   "label": "BP Systolic Warning (mmHg)",
+   "reqd": 1
+  },
+  {
+   "default": "300",
+   "description": "Fasting blood sugar (mg/dL) above which a critical alert is raised",
+   "fieldname": "fbs_critical_high",
+   "fieldtype": "Float",
+   "label": "FBS Critical High (mg/dL)",
+   "precision": "0",
+   "reqd": 1
+  },
+  {
+   "default": "200",
+   "description": "Fasting blood sugar (mg/dL) above which a warning alert is raised",
+   "fieldname": "fbs_warning_high",
+   "fieldtype": "Float",
+   "label": "FBS Warning High (mg/dL)",
+   "precision": "0",
+   "reqd": 1
+  },
+  {
+   "fieldname": "protocol_engine_section",
+   "fieldtype": "Section Break",
+   "label": "Protocol Engine"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_protocol_engine",
+   "fieldtype": "Check",
+   "label": "Enable Protocol Engine"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_create_care_plan_on_enrollment",
+   "fieldtype": "Check",
+   "label": "Auto-Create Care Plan on Enrollment"
+  },
+  {
+   "default": "0",
+   "description": "If unchecked, only one active care plan is allowed per enrollment",
+   "fieldname": "allow_multiple_active_care_plans",
+   "fieldtype": "Check",
+   "label": "Allow Multiple Active Care Plans per Enrollment"
+  },
+  {
+   "fieldname": "column_break_protocol",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "auto_schedule_reviews",
+   "fieldtype": "Check",
+   "label": "Auto-Schedule Reviews"
+  },
+  {
+   "fieldname": "patient_portal_section",
+   "fieldtype": "Section Break",
+   "label": "Patient Portal"
+  },
+  {
+   "default": "1",
+   "fieldname": "enable_patient_portal",
+   "fieldtype": "Check",
+   "label": "Enable Patient Portal"
+  },
+  {
+   "default": "1",
+   "fieldname": "allow_self_monitoring_entry",
+   "fieldtype": "Check",
+   "label": "Allow Patient Self-Monitoring Entry"
+  },
+  {
+   "depends_on": "eval:doc.allow_self_monitoring_entry",
+   "fieldname": "allowed_self_entry_types",
+   "fieldtype": "Table",
+   "label": "Allowed Self-Entry Types",
+   "options": "CDM Allowed Self Entry Type"
+  },
+  {
+   "fieldname": "column_break_portal",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_care_plan_to_patient",
+   "fieldtype": "Check",
+   "label": "Show Care Plan to Patient"
+  },
+  {
+   "default": "1",
+   "fieldname": "show_lab_results_to_patient",
+   "fieldtype": "Check",
+   "label": "Show Lab Results to Patient"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-04-22 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "CDM Shared",
+ "name": "Disease Management Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CDM Administrator",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "CDM Physician"
+  },
+  {
+   "read": 1,
+   "role": "CDM Coordinator"
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
