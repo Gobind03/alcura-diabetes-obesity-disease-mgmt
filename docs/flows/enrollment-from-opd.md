@@ -73,5 +73,5 @@ These are registered in `hooks.py` under the `doctype_js` key.
 
 | Endpoint | Purpose |
 |---|---|
-| `chronic_disease_management.api.enrollment.get_enrollment_context` | Build pre-fill context |
-| `chronic_disease_management.api.enrollment.check_existing_enrollment` | Duplicate check |
+| `alcura_diabetes_obesity_disease_mgmt.api.enrollment.get_enrollment_context` | Build pre-fill context |
+| `alcura_diabetes_obesity_disease_mgmt.api.enrollment.check_existing_enrollment` | Duplicate check |

@@ -8,15 +8,15 @@
 ## Installation
 
 ```bash
-bench get-app chronic_disease_management --branch main
-bench --site your-site install-app chronic_disease_management
+bench get-app alcura_diabetes_obesity_disease_mgmt --branch main
+bench --site your-site install-app alcura_diabetes_obesity_disease_mgmt
 bench --site your-site migrate
 ```
 
 ## Updating
 
 ```bash
-cd apps/chronic_disease_management
+cd apps/alcura_diabetes_obesity_disease_mgmt
 git pull origin main
 bench --site your-site migrate
 bench build
@@ -35,7 +35,7 @@ bench restart
 If the app needs to be removed:
 
 ```bash
-bench --site your-site uninstall-app chronic_disease_management
+bench --site your-site uninstall-app alcura_diabetes_obesity_disease_mgmt
 ```
 
 This will:

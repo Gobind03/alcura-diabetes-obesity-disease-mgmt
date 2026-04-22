@@ -10,38 +10,38 @@ The CDM app uses **pytest** as its test runner, with Frappe-aware fixtures for d
 
 - Test pure Python logic in `services/`, `utils/`, `constants/`, `permissions/`.
 - No database or Frappe runtime required for constant/utility tests.
-- Located in `chronic_disease_management/tests/`.
+- Located in `alcura_diabetes_obesity_disease_mgmt/tests/`.
 
 ### 2. Integration Tests
 
 - Test DocType CRUD, workflow transitions, and service-layer logic that touches the database.
 - Use `conftest.py` fixtures for site initialization and transaction rollback.
-- Located in `chronic_disease_management/tests/` or co-located with doctypes.
+- Located in `alcura_diabetes_obesity_disease_mgmt/tests/` or co-located with doctypes.
 
 ### 3. Permission Tests
 
 - Verify role-based access on each CDM doctype.
 - Test that unauthorized roles cannot read/write/submit.
 - Test portal isolation (patient A cannot see patient B's data).
-- Located in `chronic_disease_management/tests/`.
+- Located in `alcura_diabetes_obesity_disease_mgmt/tests/`.
 
 ### 4. API Tests
 
 - Test whitelisted API endpoints with simulated HTTP calls.
 - Verify authentication, input validation, and response format.
-- Located in `chronic_disease_management/tests/`.
+- Located in `alcura_diabetes_obesity_disease_mgmt/tests/`.
 
 ### 5. Report Smoke Tests
 
 - Verify that each report executes without errors.
 - Check that column definitions are valid.
-- Located alongside report modules or in `chronic_disease_management/tests/`.
+- Located alongside report modules or in `alcura_diabetes_obesity_disease_mgmt/tests/`.
 
 ### 6. Portal Access Tests
 
 - Test patient portal pages render correctly for CDM Patient role.
 - Verify data isolation between patients.
-- Located in `chronic_disease_management/tests/`.
+- Located in `alcura_diabetes_obesity_disease_mgmt/tests/`.
 
 ## Test Infrastructure
 
@@ -72,10 +72,10 @@ Every test runs inside a savepoint that is rolled back after the test, ensuring 
 python -m pytest
 
 # Specific file
-python -m pytest chronic_disease_management/tests/test_constants.py -v
+python -m pytest alcura_diabetes_obesity_disease_mgmt/tests/test_constants.py -v
 
 # With coverage
-python -m pytest --cov=chronic_disease_management --cov-report=html
+python -m pytest --cov=alcura_diabetes_obesity_disease_mgmt --cov-report=html
 ```
 
 ## Coverage Goals

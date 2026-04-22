@@ -33,7 +33,7 @@ Every portal request resolves the logged-in user to their Patient record using `
 
 ### 2. Whitelisted API Only
 
-Portal pages interact with the server exclusively through `@frappe.whitelist(allow_guest=False)` endpoints defined in `chronic_disease_management.api.portal`. No direct DocType REST API access is exposed to portal users.
+Portal pages interact with the server exclusively through `@frappe.whitelist(allow_guest=False)` endpoints defined in `alcura_diabetes_obesity_disease_mgmt.api.portal`. No direct DocType REST API access is exposed to portal users.
 
 ### 3. Server-Side Filtering
 
@@ -69,5 +69,5 @@ All patient-submitted data (Monitoring Entries) is timestamped and linked to the
 
 ### Mitigations
 
-- Standardize a `get_current_patient()` utility in `chronic_disease_management.utils.validators` that all portal APIs call.
+- Standardize a `get_current_patient()` utility in `alcura_diabetes_obesity_disease_mgmt.utils.validators` that all portal APIs call.
 - Create a `test_portal_isolation` test helper that verifies patient A cannot access patient B's records for any given doctype.

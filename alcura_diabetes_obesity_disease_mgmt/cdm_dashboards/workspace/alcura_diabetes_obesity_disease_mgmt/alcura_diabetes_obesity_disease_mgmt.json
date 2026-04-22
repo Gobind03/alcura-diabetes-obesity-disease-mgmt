@@ -1,0 +1,112 @@
+{
+	"charts": [],
+	"content": "[{\"id\":\"cdm_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Alcura Disease Management</b></span>\",\"col\":12}},{\"id\":\"shortcut_enrollment\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Disease Enrollment\",\"col\":3}},{\"id\":\"shortcut_care_plan\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CDM Care Plan\",\"col\":3}},{\"id\":\"shortcut_goals\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Disease Goal\",\"col\":3}},{\"id\":\"shortcut_review\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Disease Review Sheet\",\"col\":3}},{\"id\":\"shortcut_monitoring\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Home Monitoring Entry\",\"col\":3}},{\"id\":\"shortcut_alert\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CDM Alert\",\"col\":3}},{\"id\":\"shortcut_cockpit\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Patient Chronic Disease Cockpit\",\"col\":3}},{\"id\":\"shortcut_queue\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Care Coordinator Queue\",\"col\":3}},{\"id\":\"spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+	"creation": "2026-04-22 00:00:00.000000",
+	"custom_blocks": [],
+	"doctype": "Workspace",
+	"for_user": "",
+	"hide_custom": 0,
+	"icon": "health",
+	"idx": 0,
+	"is_hidden": 0,
+	"label": "Alcura Disease Management",
+	"links": [
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Enrollment", "link_to": "", "link_type": "DocType", "onboard": 0, "type": "Card Break"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Disease Enrollment", "link_to": "Disease Enrollment", "link_type": "DocType", "onboard": 1, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Baseline Assessment", "link_to": "Disease Baseline Assessment", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Diabetes Profile", "link_to": "Diabetes Profile", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Obesity Profile", "link_to": "Obesity Profile", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Care Plans", "link_to": "", "link_type": "DocType", "onboard": 0, "type": "Card Break"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "CDM Care Plan", "link_to": "CDM Care Plan", "link_type": "DocType", "onboard": 1, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Disease Goal", "link_to": "Disease Goal", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Diet Plan", "link_to": "Diet Plan", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Reviews", "link_to": "", "link_type": "DocType", "onboard": 0, "type": "Card Break"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Disease Review Sheet", "link_to": "Disease Review Sheet", "link_type": "DocType", "onboard": 1, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Monitoring", "link_to": "", "link_type": "DocType", "onboard": 0, "type": "Card Break"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Home Monitoring Entry", "link_to": "Home Monitoring Entry", "link_type": "DocType", "onboard": 1, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Medication Adherence Log", "link_to": "Medication Adherence Log", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Medication Side Effect Log", "link_to": "Medication Side Effect Log", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Meal Log", "link_to": "Meal Log", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Activity Log", "link_to": "Activity Log", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Supplement Log", "link_to": "Supplement Log", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Protocols & Alerts", "link_to": "", "link_type": "DocType", "onboard": 0, "type": "Card Break"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "CDM Alert", "link_to": "CDM Alert", "link_type": "DocType", "onboard": 1, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Complication Screening Tracker", "link_to": "Complication Screening Tracker", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Care Gap", "link_to": "Care Gap", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Care Coordinator Action", "link_to": "Care Coordinator Action", "link_type": "DocType", "onboard": 0, "type": "Link"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Settings", "link_to": "", "link_type": "DocType", "onboard": 0, "type": "Card Break"
+		},
+		{
+			"hidden": 0, "is_query_report": 0, "label": "Disease Management Settings", "link_to": "Disease Management Settings", "link_type": "DocType", "onboard": 0, "type": "Link"
+		}
+	],
+	"modified": "2026-04-22 00:00:00.000000",
+	"modified_by": "Administrator",
+	"module": "CDM Dashboards",
+	"name": "Alcura Disease Management",
+	"number_cards": [],
+	"owner": "Administrator",
+	"parent_page": "",
+	"public": 1,
+	"restrict_to_domain": "",
+	"roles": [],
+	"sequence_id": 1.0,
+	"shortcuts": [
+		{ "color": "Green", "doc_view": "List", "label": "Disease Enrollment", "link_to": "Disease Enrollment", "type": "DocType" },
+		{ "color": "Blue", "doc_view": "List", "label": "CDM Care Plan", "link_to": "CDM Care Plan", "type": "DocType" },
+		{ "color": "Purple", "doc_view": "List", "label": "Disease Goal", "link_to": "Disease Goal", "type": "DocType" },
+		{ "color": "Orange", "doc_view": "List", "label": "Disease Review Sheet", "link_to": "Disease Review Sheet", "type": "DocType" },
+		{ "color": "Red", "doc_view": "List", "label": "Home Monitoring Entry", "link_to": "Home Monitoring Entry", "type": "DocType" },
+		{ "color": "Yellow", "doc_view": "List", "label": "CDM Alert", "link_to": "CDM Alert", "type": "DocType" },
+		{ "color": "Grey", "doc_view": "", "label": "Patient Cockpit", "link_to": "patient-chronic-disease-cockpit", "type": "Page" },
+		{ "color": "Cyan", "doc_view": "", "label": "Coordinator Queue", "link_to": "care-coordinator-queue", "type": "Page" }
+	],
+	"title": "Alcura Disease Management"
+}

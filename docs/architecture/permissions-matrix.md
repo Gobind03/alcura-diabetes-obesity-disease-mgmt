@@ -2,7 +2,7 @@
 
 ## CDM DocType Permissions by Role
 
-This matrix is implemented programmatically in `chronic_disease_management/permissions/role_matrix.py`. The code is the source of truth; this document is kept in sync.
+This matrix is implemented programmatically in `alcura_diabetes_obesity_disease_mgmt/permissions/role_matrix.py`. The code is the source of truth; this document is kept in sync.
 
 | DocType | CDM Admin | CDM Physician | CDM Nurse | CDM Coordinator | CDM Dietitian | CDM Patient |
 |---|---|---|---|---|---|---|

@@ -80,8 +80,8 @@ Draft → Cancelled
 
 ## API Endpoints
 
-- `chronic_disease_management.api.encounter_context.create_review_from_encounter`
-- `chronic_disease_management.api.encounter_context.get_enrollment_for_patient`
+- `alcura_diabetes_obesity_disease_mgmt.api.encounter_context.create_review_from_encounter`
+- `alcura_diabetes_obesity_disease_mgmt.api.encounter_context.get_enrollment_for_patient`
 
 ## Test Coverage
 

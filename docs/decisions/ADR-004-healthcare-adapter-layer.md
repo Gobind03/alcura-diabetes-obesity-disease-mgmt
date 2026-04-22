@@ -26,7 +26,7 @@ We need a strategy that:
 
 ## Decision
 
-We will create a dedicated **adapter layer** (`chronic_disease_management/adapters/`) that:
+We will create a dedicated **adapter layer** (`alcura_diabetes_obesity_disease_mgmt/adapters/`) that:
 
 1. **Encapsulates** all reads from Healthcare doctypes behind stable function signatures.
 2. **Guards** against missing doctypes/fields using `require_doctype()` and `optional_doctype()` checks.

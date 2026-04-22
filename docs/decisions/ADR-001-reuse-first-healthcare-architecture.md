@@ -10,7 +10,7 @@ Accepted
 
 ## Context
 
-We need to build a Chronic Disease Management module for Diabetes, Obesity, and Combined Metabolic conditions. The target platform already includes Frappe 16, ERPNext 16, HRMS 16, and Marley Health (Healthcare) v16, which collectively provide:
+We need to build an Alcura Disease Management module for Diabetes, Obesity, and Combined Metabolic conditions. The target platform already includes Frappe 16, ERPNext 16, HRMS 16, and Marley Health (Healthcare) v16, which collectively provide:
 
 - Patient registration and demographics
 - Practitioner management

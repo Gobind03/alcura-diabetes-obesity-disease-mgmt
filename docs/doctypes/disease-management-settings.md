@@ -78,7 +78,7 @@ CDM Shared
 ## Programmatic Access
 
 ```python
-from chronic_disease_management.utils.document_helpers import get_cdm_settings
+from alcura_diabetes_obesity_disease_mgmt.utils.document_helpers import get_cdm_settings
 
 settings = get_cdm_settings()  # cached singleton
 interval = settings.get_review_interval("Diabetes")  # 90
@@ -89,7 +89,7 @@ entry_types = settings.get_allowed_self_entry_types()  # ["Blood Glucose", ...]
 
 ## Installation
 
-The singleton is auto-created during `after_install` with sensible defaults. See `chronic_disease_management/setup/install.py`.
+The singleton is auto-created during `after_install` with sensible defaults. See `alcura_diabetes_obesity_disease_mgmt/setup/install.py`.
 
 ## Child Tables
 

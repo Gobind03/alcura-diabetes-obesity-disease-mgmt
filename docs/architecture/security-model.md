@@ -24,7 +24,7 @@ System Manager has implicit full access via Frappe's built-in role.
 
 ### DocType Permissions
 
-Standard Frappe role-based permissions are defined in the permission matrix (`chronic_disease_management/permissions/role_matrix.py`). The matrix covers all CDM doctypes and is the single source of truth. See [permissions-matrix.md](permissions-matrix.md) for the full table.
+Standard Frappe role-based permissions are defined in the permission matrix (`alcura_diabetes_obesity_disease_mgmt/permissions/role_matrix.py`). The matrix covers all CDM doctypes and is the single source of truth. See [permissions-matrix.md](permissions-matrix.md) for the full table.
 
 ### Permission Query Conditions
 

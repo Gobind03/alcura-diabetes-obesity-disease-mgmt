@@ -11,7 +11,7 @@ When a patient registers as a portal user, Marley Health links their User record
 The CDM app resolves this linkage using:
 
 ```python
-from chronic_disease_management.permissions.cdm_permissions import get_patient_for_user
+from alcura_diabetes_obesity_disease_mgmt.permissions.cdm_permissions import get_patient_for_user
 
 patient_id = get_patient_for_user()  # returns "PAT-001" or None
 ```

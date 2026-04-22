@@ -1,6 +1,6 @@
-# Chronic Disease Management -- Documentation
+# Alcura Disease Management -- Documentation
 
-This folder contains all project documentation for the Chronic Disease Management (CDM) Frappe app.
+This folder contains all project documentation for the Alcura Disease Management (CDM) Frappe app.
 
 ## Structure
 

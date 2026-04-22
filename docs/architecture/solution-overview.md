@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The Chronic Disease Management (CDM) app provides longitudinal management of **Diabetes**, **Obesity**, and **Combined Metabolic Conditions** within the Frappe/ERPNext healthcare ecosystem. It is built as an extension layer over Marley Health (Frappe Healthcare), not as a standalone system.
+The Alcura Disease Management (CDM) app provides longitudinal management of **Diabetes**, **Obesity**, and **Combined Metabolic Conditions** within the Frappe/ERPNext healthcare ecosystem. It is built as an extension layer over Marley Health (Frappe Healthcare), not as a standalone system.
 
 ## Architecture Principle: Extension Over Fork
 

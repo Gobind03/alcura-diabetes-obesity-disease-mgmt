@@ -76,7 +76,7 @@ erDiagram
 
 ## Constants and Enums
 
-All domain constants are centralized in `chronic_disease_management/constants/`:
+All domain constants are centralized in `alcura_diabetes_obesity_disease_mgmt/constants/`:
 
 | Module | Enums / Constants |
 |---|---|
@@ -106,7 +106,7 @@ All domain constants are centralized in `chronic_disease_management/constants/`:
 
 ## State Transition Validation
 
-State transitions are enforced programmatically via `chronic_disease_management.utils.validators`:
+State transitions are enforced programmatically via `alcura_diabetes_obesity_disease_mgmt.utils.validators`:
 
 - `validate_enrollment_status_transition(current, target)`
 - `validate_care_plan_status_transition(current, target)`

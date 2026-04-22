@@ -1,9 +1,9 @@
 [project]
-name = "chronic_disease_management"
+name = "alcura_diabetes_obesity_disease_mgmt"
 authors = [
     { name = "Alcura", email = "dev@alcura.io" },
 ]
-description = "Chronic Disease Management for Diabetes, Obesity, and Metabolic Conditions — built on Frappe, ERPNext, and Marley Health"
+description = "Alcura Disease Management for Diabetes, Obesity, and Metabolic Conditions — built on Frappe, ERPNext, and Marley Health"
 requires-python = ">=3.11"
 readme = "README.md"
 dynamic = ["version"]
@@ -44,7 +44,7 @@ indent-style = "tab"
 
 [tool.pytest.ini_options]
 addopts = "--tb=short -q"
-testpaths = ["chronic_disease_management/tests"]
+testpaths = ["alcura_diabetes_obesity_disease_mgmt/tests"]
 python_files = ["test_*.py"]
 python_classes = ["Test*"]
 python_functions = ["test_*"]

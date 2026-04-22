@@ -104,15 +104,15 @@ Portal patients see only their own enrollments via `cdm_permissions.py`.
 
 | Method | Endpoint |
 |---|---|
-| `create_enrollment` | `chronic_disease_management.api.enrollment.create_enrollment` |
-| `get_active_enrollment` | `chronic_disease_management.api.enrollment.get_active_enrollment` |
-| `update_enrollment_status` | `chronic_disease_management.api.enrollment.update_enrollment_status` |
-| `get_enrollment_context` | `chronic_disease_management.api.enrollment.get_enrollment_context` |
-| `check_existing_enrollment` | `chronic_disease_management.api.enrollment.check_existing_enrollment` |
+| `create_enrollment` | `alcura_diabetes_obesity_disease_mgmt.api.enrollment.create_enrollment` |
+| `get_active_enrollment` | `alcura_diabetes_obesity_disease_mgmt.api.enrollment.get_active_enrollment` |
+| `update_enrollment_status` | `alcura_diabetes_obesity_disease_mgmt.api.enrollment.update_enrollment_status` |
+| `get_enrollment_context` | `alcura_diabetes_obesity_disease_mgmt.api.enrollment.get_enrollment_context` |
+| `check_existing_enrollment` | `alcura_diabetes_obesity_disease_mgmt.api.enrollment.check_existing_enrollment` |
 
 ## Service Layer
 
-All business logic is in `chronic_disease_management.services.enrollment.EnrollmentService`:
+All business logic is in `alcura_diabetes_obesity_disease_mgmt.services.enrollment.EnrollmentService`:
 
 - `create_enrollment()` — validates eligibility, prevents duplicates, creates doc
 - `update_status()` — validates transition, saves reason, adds comment

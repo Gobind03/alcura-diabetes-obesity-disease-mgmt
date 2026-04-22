@@ -39,12 +39,12 @@ bench --site dev.localhost install-app healthcare
 
 ```bash
 # Option A: Link from local path
-bench get-app /path/to/chronic_disease_management
+bench get-app /path/to/alcura_diabetes_obesity_disease_mgmt
 
-# Option B: Clone from git (when available)
-# bench get-app https://github.com/alcura/chronic_disease_management --branch main
+# Option B: Clone from git
+# bench get-app https://github.com/Gobind03/alcura-diabetes-obesity-disease-mgmt.git --branch main
 
-bench --site dev.localhost install-app chronic_disease_management
+bench --site dev.localhost install-app alcura_diabetes_obesity_disease_mgmt
 bench --site dev.localhost migrate
 ```
 
@@ -60,31 +60,31 @@ The site will be available at `http://dev.localhost:8000`.
 
 ```bash
 # Via bench
-bench --site dev.localhost run-tests --app chronic_disease_management
+bench --site dev.localhost run-tests --app alcura_diabetes_obesity_disease_mgmt
 
 # Via pytest (from the app directory)
-cd apps/chronic_disease_management
+cd apps/alcura_diabetes_obesity_disease_mgmt
 python -m pytest
 
 # Run a specific test file
-python -m pytest chronic_disease_management/tests/test_constants.py -v
+python -m pytest alcura_diabetes_obesity_disease_mgmt/tests/test_constants.py -v
 ```
 
 ## Code Quality
 
 ```bash
 # Lint with ruff
-ruff check chronic_disease_management/
+ruff check alcura_diabetes_obesity_disease_mgmt/
 
 # Format with ruff
-ruff format chronic_disease_management/
+ruff format alcura_diabetes_obesity_disease_mgmt/
 ```
 
 ## Loading Demo Data
 
 ```bash
 bench --site dev.localhost execute \
-    chronic_disease_management.setup.demo_data.create_demo_data
+    alcura_diabetes_obesity_disease_mgmt.setup.demo_data.create_demo_data
 ```
 
 ## Troubleshooting

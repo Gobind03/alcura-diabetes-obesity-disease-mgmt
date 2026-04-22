@@ -13,10 +13,10 @@ This directory documents all whitelisted API endpoints exposed by the CDM app.
 
 | Module | Path Prefix | Purpose |
 |---|---|---|
-| Enrollment | `chronic_disease_management.api.enrollment` | Enrollment CRUD, eligibility checks |
-| Care Plan | `chronic_disease_management.api.care_plan` | Care plan retrieval, goal updates |
-| Monitoring | `chronic_disease_management.api.monitoring` | Vitals submission, monitoring history |
-| Portal | `chronic_disease_management.api.portal` | Patient portal data access |
+| Enrollment | `alcura_diabetes_obesity_disease_mgmt.api.enrollment` | Enrollment CRUD, eligibility checks |
+| Care Plan | `alcura_diabetes_obesity_disease_mgmt.api.care_plan` | Care plan retrieval, goal updates |
+| Monitoring | `alcura_diabetes_obesity_disease_mgmt.api.monitoring` | Vitals submission, monitoring history |
+| Portal | `alcura_diabetes_obesity_disease_mgmt.api.portal` | Patient portal data access |
 
 ## Documentation Template
 

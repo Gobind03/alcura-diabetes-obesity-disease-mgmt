@@ -93,12 +93,12 @@ Portal patients are restricted to their own records via `has_permission` hook.
 
 ## API Endpoints
 
-- `chronic_disease_management.api.care_plan.get_active_care_plan`
-- `chronic_disease_management.api.care_plan.create_care_plan`
-- `chronic_disease_management.api.care_plan.add_goal`
-- `chronic_disease_management.api.care_plan.revise_goal`
-- `chronic_disease_management.api.care_plan.get_goals`
-- `chronic_disease_management.api.care_plan.get_goal_history`
+- `alcura_diabetes_obesity_disease_mgmt.api.care_plan.get_active_care_plan`
+- `alcura_diabetes_obesity_disease_mgmt.api.care_plan.create_care_plan`
+- `alcura_diabetes_obesity_disease_mgmt.api.care_plan.add_goal`
+- `alcura_diabetes_obesity_disease_mgmt.api.care_plan.revise_goal`
+- `alcura_diabetes_obesity_disease_mgmt.api.care_plan.get_goals`
+- `alcura_diabetes_obesity_disease_mgmt.api.care_plan.get_goal_history`
 
 ## Test Coverage
 

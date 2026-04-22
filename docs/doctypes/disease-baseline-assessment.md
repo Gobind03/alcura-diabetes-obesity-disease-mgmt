@@ -126,5 +126,5 @@ Auto-fetchable fields are defined in `_AUTO_FETCHABLE_FIELDS` in the controller.
 
 | Method | Endpoint |
 |---|---|
-| `create_baseline_assessment` | `chronic_disease_management.api.enrollment.create_baseline_assessment` |
-| `refresh_baseline` | `chronic_disease_management.api.enrollment.refresh_baseline` |
+| `create_baseline_assessment` | `alcura_diabetes_obesity_disease_mgmt.api.enrollment.create_baseline_assessment` |
+| `refresh_baseline` | `alcura_diabetes_obesity_disease_mgmt.api.enrollment.refresh_baseline` |

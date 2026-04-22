@@ -8,7 +8,7 @@ The CDM app integrates with existing Frappe, ERPNext, and Marley Health doctypes
 
 ### 1. Healthcare Adapter Layer (Story 2)
 
-All read access to Healthcare doctypes is routed through the adapter layer (`chronic_disease_management/adapters/`). See [ADR-004](../decisions/ADR-004-healthcare-adapter-layer.md) and [reused-doctype-mapping.md](reused-doctype-mapping.md) for details.
+All read access to Healthcare doctypes is routed through the adapter layer (`alcura_diabetes_obesity_disease_mgmt/adapters/`). See [ADR-004](../decisions/ADR-004-healthcare-adapter-layer.md) and [reused-doctype-mapping.md](reused-doctype-mapping.md) for details.
 
 | Adapter Module | Healthcare DocType(s) | Key Methods |
 |---|---|---|
@@ -30,7 +30,7 @@ Custom Fields are added during `after_install` and exported via the `fixtures` h
 | Patient | `cdm_enrolled` (Check, Read Only) | Flag indicating the patient has an active CDM enrollment |
 | Patient | `cdm_active_programs` (Small Text, Read Only) | Comma-separated list of active disease programs |
 
-Defined in `chronic_disease_management/setup/custom_fields.py`.
+Defined in `alcura_diabetes_obesity_disease_mgmt/setup/custom_fields.py`.
 
 ### 3. OPD Enrollment Triggers (Story 5)
 
